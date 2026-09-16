@@ -105,12 +105,14 @@ const options = [...SERVICES, ...INDUSTRIES].map((p) => p.label).concat(['Free W
         }),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message);
+      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || `HTTP ${res.status}`);
       form.reset();
       status.textContent = 'Thank you! Your enquiry has been sent — we will be in touch within one working day.';
       status.classList.add('ok');
-    } catch {
-      status.textContent = `Sorry, something went wrong. Please email us at ${form.dataset.email}.`;
+    } catch (err) {
+      console.error('Contact form error:', err);
+      const detail = err instanceof Error && err.message && !err.message.startsWith('Failed to fetch') ? ` (${err.message})` : '';
+      status.textContent = `Sorry, your enquiry could not be sent${detail}. Please email us at ${form.dataset.email}.`;
     } finally {
       btn.disabled = false;
     }
