@@ -6,8 +6,9 @@ export const SITE = {
   description:
     'WebyGrowth is a UK web design agency building fast, SEO-ready WordPress, WooCommerce and Shopify websites that turn visitors into enquiries.',
   area: 'Serving UK businesses remotely',
-  // Set PUBLIC_FORM_ENDPOINT in .env (e.g. a Formspree / Web3Forms URL) to enable the contact form.
-  formEndpoint: import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined,
+  // Contact form submissions are delivered by FormSubmit (formsubmit.co).
+  // Override with PUBLIC_FORM_ENDPOINT, e.g. the random alias FormSubmit gives you after activation.
+  formEndpoint: (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || 'https://formsubmit.co/ajax/mbux4001@gmail.com',
 };
 
 export type NavItem = { label: string; href: string; desc?: string };
