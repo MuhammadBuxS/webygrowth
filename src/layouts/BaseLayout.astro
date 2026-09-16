@@ -25,7 +25,7 @@ const org = {
   '@id': `${SITE.url}/#organization`,
   name: SITE.name,
   url: SITE.url,
-  logo: `${SITE.url}/favicon.svg`,
+  logo: { '@type': 'ImageObject', url: `${SITE.url}/icon-512.png`, width: 512, height: 512 },
   image: ogImage,
   email: SITE.email,
   telephone: `+${SITE.whatsapp}`,
@@ -60,7 +60,19 @@ const breadcrumb = crumbs.length
       })),
     }
   : null;
-const graph = [org, website, breadcrumb, ...schema].filter(Boolean);
+const webpage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: 'en-GB',
+  isPartOf: { '@id': `${SITE.url}/#website` },
+  about: { '@id': `${SITE.url}/#organization` },
+  primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
+};
+const graph = [org, website, webpage, breadcrumb, ...schema].filter(Boolean);
 ---
 <!doctype html>
 <html lang="en-GB" class="no-js">
@@ -71,9 +83,15 @@ const graph = [org, website, breadcrumb, ...schema].filter(Boolean);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta name="author" content={SITE.name} />
+    <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#06070c" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />

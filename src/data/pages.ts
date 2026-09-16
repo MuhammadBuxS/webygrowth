@@ -25,7 +25,7 @@ export const PAGES: ServicePage[] = [
     kind: 'service',
     label: 'WordPress Website Design',
     icon: 'wordpress',
-    metaTitle: 'WordPress Website Design UK | Fast, SEO-Ready Sites | WebyGrowth',
+    metaTitle: 'WordPress Website Design UK | WebyGrowth',
     metaDescription:
       'Custom WordPress website design for UK small businesses. Professional, fast-loading, SEO-ready websites built to turn visitors into enquiries.',
     eyebrow: 'WordPress Design & Development',
@@ -65,7 +65,7 @@ export const PAGES: ServicePage[] = [
     kind: 'service',
     label: 'WooCommerce Store Design',
     icon: 'cart',
-    metaTitle: 'WooCommerce Store Design UK | Ecommerce Websites | WebyGrowth',
+    metaTitle: 'WooCommerce Store Design UK | WebyGrowth',
     metaDescription:
       'Flexible WooCommerce store design built for beautiful product presentation, smooth checkout and easy management. Grow online sales with WebyGrowth.',
     eyebrow: 'WooCommerce Store Design',
@@ -105,7 +105,7 @@ export const PAGES: ServicePage[] = [
     kind: 'service',
     label: 'Shopify Store Design',
     icon: 'bag',
-    metaTitle: 'Shopify Store Design UK | Premium Shopify Websites | WebyGrowth',
+    metaTitle: 'Shopify Store Design UK | Premium Stores | WebyGrowth',
     metaDescription:
       'Modern Shopify store design with premium layouts, mobile-first shopping experiences and conversion-focused sections for growing UK brands.',
     eyebrow: 'Shopify Store Design',
@@ -145,7 +145,7 @@ export const PAGES: ServicePage[] = [
     kind: 'service',
     label: 'Store Migrations',
     icon: 'migrate',
-    metaTitle: 'Ecommerce Store Migrations | Shopify & WooCommerce | WebyGrowth',
+    metaTitle: 'Shopify & WooCommerce Store Migrations | WebyGrowth',
     metaDescription:
       'Move your products, pages, customers and store structure between Shopify, WooCommerce and other platforms with a clean, SEO-safe migration strategy.',
     eyebrow: 'Store Migrations',
@@ -185,7 +185,7 @@ export const PAGES: ServicePage[] = [
     kind: 'service',
     label: 'SEO Services',
     icon: 'search',
-    metaTitle: 'SEO Services for Small Businesses UK | Local SEO | WebyGrowth',
+    metaTitle: 'SEO Services for UK Small Businesses | WebyGrowth',
     metaDescription:
       'SEO services designed to improve your search visibility, content structure, rankings and local presence. Get found by more customers on Google.',
     eyebrow: 'SEO Services',
@@ -225,7 +225,7 @@ export const PAGES: ServicePage[] = [
     kind: 'industry',
     label: 'Roofing Website Design',
     icon: 'roof',
-    metaTitle: 'Roofing Website Design UK | Websites for Roofers | WebyGrowth',
+    metaTitle: 'Roofing Website Design UK | Roofer Websites | WebyGrowth',
     metaDescription:
       'Roofing website design that wins more quote requests. Fast, mobile-first websites for UK roofers with local SEO, galleries and click-to-call.',
     eyebrow: 'Websites for Roofers',
@@ -287,7 +287,7 @@ export const PAGES: ServicePage[] = [
     kind: 'industry',
     label: 'Dental Website Design',
     icon: 'tooth',
-    metaTitle: 'Dental Website Design UK | Websites for Dentists | WebyGrowth',
+    metaTitle: 'Dental Website Design UK | Dentist Websites | WebyGrowth',
     metaDescription:
       'Dental website design that attracts new patients. Calm, trustworthy, fast websites for UK dental practices with online booking and treatment pages.',
     eyebrow: 'Websites for Dental Practices',
@@ -318,7 +318,7 @@ export const PAGES: ServicePage[] = [
     kind: 'industry',
     label: 'Restaurant Website Design',
     icon: 'dish',
-    metaTitle: 'Restaurant Website Design UK | Websites for Restaurants | WebyGrowth',
+    metaTitle: 'Restaurant Website Design UK | WebyGrowth',
     metaDescription:
       'Restaurant website design that fills tables. Mouth-watering, mobile-first websites with menus, reservations and ordering for UK restaurants and cafés.',
     eyebrow: 'Websites for Restaurants',

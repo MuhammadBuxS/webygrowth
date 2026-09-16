@@ -1,0 +1,23 @@
+# Keep the pages.dev preview domain out of search results (canonical site is webygrowth.com)
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Hashed build assets never change -> cache for a year
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/og.png
+  Cache-Control: public, max-age=604800
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

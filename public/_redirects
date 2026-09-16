@@ -1,0 +1,22 @@
+# Old WordPress / common sitemap locations -> Astro sitemap
+/sitemap.xml          /sitemap-index.xml  301
+/sitemap_index.xml    /sitemap-index.xml  301
+/wp-sitemap.xml       /sitemap-index.xml  301
+/page-sitemap.xml     /sitemap-index.xml  301
+/post-sitemap.xml     /sitemap-index.xml  301
+
+# Old WordPress system URLs
+/feed                 /                   301
+/feed/                /                   301
+/wp-admin/*           /                   301
+/wp-login.php         /                   301
+/home                 /                   301
+/home/                /                   301
+
+# Short, shareable links
+/whatsapp             https://wa.me/923060834006  302
+/audit                /contact/           301
+/seo                  /seo-services/      301
+/shopify              /shopify-store-design/      301
+/wordpress            /wordpress-website-design/  301
+/woocommerce          /woocommerce-store-design/  301
