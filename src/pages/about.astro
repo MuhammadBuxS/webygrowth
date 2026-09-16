@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import Process from '../components/Process.astro';
 import Testimonials from '../components/Testimonials.astro';
+import { waLink } from '../data/site';
 
 const values = [
   { icon: 'target', title: 'Strategy Before Design', text: 'We understand your goals, customers and competitors before we open a design tool.' },
@@ -26,7 +27,7 @@ const values = [
       <h1 class="display-xl rise" style="--d:.05s">Websites should help<br />your business <span class="grad-text">grow.</span></h1>
       <div class="ahero__row">
         <p class="lead rise" style="--d:.1s">Too many great local businesses are held back by outdated, slow or underperforming websites that don't reflect the quality of their work. We started WebyGrowth to change that.</p>
-        <a class="btn btn-primary rise" style="--d:.14s" href="/contact/">Work with us <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+        <a class="btn btn-wa rise" style="--d:.14s" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Work with us</a>
       </div>
     </div>
   </section>

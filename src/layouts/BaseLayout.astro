@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import { SITE } from '../data/site';
 
 interface Crumb { name: string; path: string }
@@ -27,6 +28,13 @@ const org = {
   logo: `${SITE.url}/favicon.svg`,
   image: ogImage,
   email: SITE.email,
+  telephone: `+${SITE.whatsapp}`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: `+${SITE.whatsapp}`,
+    contactType: 'sales',
+    availableLanguage: ['English'],
+  },
   description: SITE.description,
   areaServed: { '@type': 'Country', name: 'United Kingdom' },
   knowsAbout: ['Web design', 'WordPress', 'WooCommerce', 'Shopify', 'SEO', 'Ecommerce'],
@@ -91,6 +99,7 @@ const graph = [org, website, breadcrumb, ...schema].filter(Boolean);
       <slot />
     </main>
     <Footer />
+    <WhatsAppFloat />
 
     <script>
       const els = document.querySelectorAll<HTMLElement>('.reveal');
