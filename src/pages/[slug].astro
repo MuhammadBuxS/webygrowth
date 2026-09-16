@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import SiteMock from '../components/SiteMock.astro';
+import Process from '../components/Process.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import { PAGES, SERVICES, INDUSTRIES, type ServicePage } from '../data/pages';
+import { SITE } from '../data/site';
+
+export function getStaticPaths() {
+  return PAGES.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: ServicePage };
+const url = `${SITE.url}/${page.slug}/`;
+const related = (page.kind === 'service' ? SERVICES : INDUSTRIES).filter((p) => p.slug !== page.slug).slice(0, 3);
+const benefitIcons = ['target', 'bolt', 'layers', 'search', 'chart', 'shield'];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: page.label,
+    serviceType: page.label,
+    description: page.metaDescription,
+    url,
+    provider: { '@id': `${SITE.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+const crumbs = [
+  { name: 'Services', path: '/services/' },
+  { name: page.label, path: `/${page.slug}/` },
+];
+---
+<BaseLayout title={page.metaTitle} description={page.metaDescription} crumbs={crumbs} schema={schema}>
+  <section class="phero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style={`width:620px;height:620px;background:hsl(${page.mock.hue} 80% 50%);right:-160px;top:-160px;opacity:.32`}></div>
+    <div class="glow" style="width:480px;height:480px;background:#2563eb;left:-200px;bottom:-200px;opacity:.3"></div>
+    <div class="container phero__grid">
+      <div class="phero__copy">
+        <nav class="crumbs rise" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/services/">Services</a><span>/</span><span aria-current="page">{page.label}</span>
+        </nav>
+        <p class="eyebrow rise" style="--d:.04s">{page.eyebrow}</p>
+        <h1 class="display-lg rise" style="--d:.08s">{page.h1} <span class="grad-text">{page.h1Accent}</span></h1>
+        <p class="lead rise" style="--d:.12s">{page.intro}</p>
+        <div class="phero__ctas rise" style="--d:.16s">
+          <a class="btn btn-primary" href="/contact/">Start your project <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+          <a class="btn btn-ghost" href="#included">What's included</a>
+        </div>
+        <ul class="phero__chips rise" style="--d:.2s">
+          <li><Icon name="check" size={14} stroke={2.6} /> Free consultation</li>
+          <li><Icon name="check" size={14} stroke={2.6} /> Fixed, clear quotes</li>
+          <li><Icon name="check" size={14} stroke={2.6} /> UK-focused</li>
+        </ul>
+      </div>
+      <div class="phero__vis rise" style="--d:.2s">
+        <SiteMock brand={page.mock.brand} headline={page.mock.headline} cta={page.mock.cta} hue={page.mock.hue} />
+        <div class="phero__badge">
+          <span><Icon name="bolt" size={16} /></span>
+          <div><strong>SEO-ready build</strong><small>Fast · Mobile-first · Schema</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section benefits" aria-labelledby="ben-title">
+    <div class="container">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal">Why it works</p>
+          <h2 id="ben-title" class="display-lg reveal" style="--d:.05s">Designed to look great. <span class="serif-i">Built to perform.</span></h2>
+        </div>
+        <p class="lead reveal" style="--d:.1s">Every decision — from layout to load time — is made to help your business win more customers online.</p>
+      </div>
+      <div class="ben__grid">
+        {page.benefits.map((b, i) => (
+          <article class="card ben reveal" style={`--d:${(i % 3) * 0.06}s`}>
+            <span class="icon-badge"><Icon name={benefitIcons[i % benefitIcons.length]} /></span>
+            <h3>{b.title}</h3>
+            <p class="muted">{b.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark included noise" id="included" aria-labelledby="inc-title">
+    <div class="glow" style="width:520px;height:520px;background:#7c3aed;right:-200px;bottom:-100px;opacity:.25"></div>
+    <div class="container inc__grid">
+      <div class="inc__head">
+        <p class="eyebrow reveal">What's included</p>
+        <h2 id="inc-title" class="display-lg reveal" style="--d:.05s">Everything you need to <span class="grad-text">launch &amp; grow.</span></h2>
+        <p class="lead reveal" style="--d:.1s">No hidden extras. A complete package tailored to your goals, with support after launch.</p>
+        <a class="btn btn-light reveal" style="--d:.14s" href="/contact/">Get a free quote <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+      </div>
+      <ul class="inc__list">
+        {page.deliverables.map((d, i) => (
+          <li class="reveal" style={`--d:${i * 0.04}s`}>
+            <span class="inc__n">{String(i + 1).padStart(2, '0')}</span>{d}
+            <Icon name="check" size={18} stroke={2.4} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Process />
+  <Testimonials />
+  <Faq faqs={page.faqs} title={`${page.kind === 'service' ? page.label : 'Your website'} questions.`} />
+
+  <section class="section related" aria-labelledby="rel-title">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Explore more</p>
+        <h2 id="rel-title" class="display-md reveal">{page.kind === 'service' ? 'Related services' : 'More industries we serve'}</h2>
+      </div>
+      <div class="rel__grid">
+        {related.map((r, i) => (
+          <a href={`/${r.slug}/`} class="card rel reveal" style={`--d:${i * 0.06}s`}>
+            <span class="icon-badge"><Icon name={r.icon} /></span>
+            <h3>{r.label}</h3>
+            <p class="muted">{r.short}</p>
+            <span class="rel__more">Learn more <Icon name="arrow" size={16} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .phero { position: relative; overflow: hidden; padding-top: clamp(130px, 15vw, 180px); padding-bottom: clamp(80px, 9vw, 120px); }
+  .phero__grid { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .phero__copy { display: grid; gap: 24px; justify-items: start; }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #8a8fa3; }
+  .crumbs a:hover { color: #fff; }
+  .crumbs [aria-current] { color: #d7dbea; }
+  .phero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .phero__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; color: #b9bed0; font-size: .9rem; }
+  .phero__chips li { display: flex; align-items: center; gap: 8px; }
+  .phero__chips :global(svg) { color: var(--lime); }
+  .phero__vis { position: relative; }
+  .phero__vis :global(.browser) { transform: perspective(1400px) rotateY(-8deg) rotateX(3deg); transition: transform 1s var(--ease); }
+  .phero__vis:hover :global(.browser) { transform: none; }
+  .phero__badge { position: absolute; left: -24px; bottom: -28px; display: flex; gap: 12px; align-items: center; padding: 14px 18px; border-radius: 18px; background: rgba(16,18,28,.85); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(14px); animation: bob 6s ease-in-out infinite; }
+  .phero__badge > span { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--lime); color: var(--ink); }
+  .phero__badge strong { display: block; font-size: .92rem; }
+  .phero__badge small { color: #9aa0b4; font-size: .78rem; }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+  @media (max-width: 900px) { .phero__grid { grid-template-columns: 1fr; } .phero__badge { left: 10px; } }
+
+  .benefits { background: #fff; }
+  .ben__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ben { display: grid; gap: 14px; align-content: start; }
+  .ben h3 { font-size: 1.4rem; margin-top: 12px; }
+  @media (max-width: 900px) { .ben__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .ben__grid { grid-template-columns: 1fr; } }
+
+  .included { overflow: hidden; }
+  .inc__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 7vw, 100px); align-items: start; position: relative; }
+  .inc__head { display: grid; gap: 24px; justify-items: start; position: sticky; top: 130px; }
+  .inc__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-dark); }
+  .inc__list li { display: flex; align-items: center; gap: 22px; padding: 22px 4px; border-bottom: 1px solid var(--line-dark); font-family: var(--font-display); font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 500; letter-spacing: -.02em; transition: padding .4s var(--ease), color .3s, opacity 1s var(--ease), transform 1s var(--ease); }
+  .inc__list li:hover { padding-left: 14px; color: var(--sky); }
+  .inc__list li :global(svg) { margin-left: auto; color: var(--lime); flex-shrink: 0; }
+  .inc__n { font-family: var(--font-body); font-size: .8rem; color: #6f7489; font-weight: 600; }
+  @media (max-width: 900px) { .inc__grid { grid-template-columns: 1fr; } .inc__head { position: static; } }
+
+  .related { background: var(--paper); }
+  .rel__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rel { display: grid; gap: 12px; align-content: start; }
+  .rel h3 { font-size: 1.35rem; margin-top: 10px; }
+  .rel__more { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; color: var(--blue); margin-top: 8px; }
+  .rel:hover .rel__more :global(svg) { transform: translateX(4px); }
+  .rel__more :global(svg) { transition: transform .3s; }
+  @media (max-width: 900px) { .rel__grid { grid-template-columns: 1fr; } }
+</style>

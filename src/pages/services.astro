@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import SiteMock from '../components/SiteMock.astro';
+import Process from '../components/Process.astro';
+import Faq from '../components/Faq.astro';
+import { SERVICES, INDUSTRIES } from '../data/pages';
+import { HOME_FAQS } from '../data/site';
+---
+<BaseLayout
+  title="Web Design & SEO Services UK | WordPress, Shopify, WooCommerce | WebyGrowth"
+  description="Explore WebyGrowth's services: WordPress website design, WooCommerce and Shopify stores, store migrations, SEO services and industry websites for UK small businesses."
+  crumbs={[{ name: 'Services', path: '/services/' }]}
+>
+  <section class="shero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:700px;height:700px;background:#2563eb;left:50%;top:-380px;transform:translateX(-50%);opacity:.4"></div>
+    <div class="container shero__inner">
+      <p class="eyebrow rise">Services</p>
+      <h1 class="display-xl rise" style="--d:.05s">Everything your<br />business needs <span class="grad-text">online.</span></h1>
+      <p class="lead rise" style="--d:.1s">Websites, online stores and SEO — designed together, so every part of your digital presence pulls in the same direction: growth.</p>
+    </div>
+  </section>
+
+  <section class="section svc-list" aria-label="Our services">
+    <div class="container">
+      {SERVICES.map((s, i) => (
+        <a href={`/${s.slug}/`} class="row reveal">
+          <span class="row__n">0{i + 1}</span>
+          <div class="row__main">
+            <h2>{s.label}</h2>
+            <p class="muted">{s.short}</p>
+          </div>
+          <div class="row__tags">
+            {s.deliverables.slice(0, 3).map((d) => <span>{d}</span>)}
+          </div>
+          <span class="row__go"><Icon name="arrow-up-right" size={22} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark inds noise" aria-labelledby="ind-title">
+    <div class="glow" style="width:500px;height:500px;background:#8b5cf6;right:-200px;top:0;opacity:.25"></div>
+    <div class="container">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal">Industry websites</p>
+          <h2 id="ind-title" class="display-lg reveal">Purpose-built for <span class="grad-text">your sector.</span></h2>
+        </div>
+        <p class="lead reveal">Specialised structures, features and SEO for the industries we know best.</p>
+      </div>
+      <div class="inds__grid">
+        {INDUSTRIES.map((p, i) => (
+          <a href={`/${p.slug}/`} class="inds__card reveal" style={`--d:${i * 0.06}s`}>
+            <SiteMock compact brand={p.mock.brand} headline={p.mock.headline} cta={p.mock.cta} hue={p.mock.hue} />
+            <div class="inds__meta">
+              <h3>{p.label}</h3>
+              <Icon name="arrow-up-right" size={20} />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Process />
+  <Faq faqs={HOME_FAQS} />
+</BaseLayout>
+
+<style>
+  .shero { position: relative; overflow: hidden; padding-top: clamp(140px, 17vw, 210px); padding-bottom: clamp(70px, 9vw, 120px); }
+  .shero__inner { position: relative; display: grid; gap: 28px; justify-items: start; }
+
+  .svc-list { background: #fff; padding-top: clamp(40px, 6vw, 80px); }
+  .row { display: grid; grid-template-columns: 70px 1.4fr 1fr 60px; gap: 30px; align-items: center; padding: clamp(28px, 4vw, 44px) 0; border-bottom: 1px solid var(--line); position: relative; transition: padding .5s var(--ease), opacity 1s var(--ease), transform 1s var(--ease); }
+  .row:first-child { border-top: 1px solid var(--line); }
+  .row::before { content: ''; position: absolute; inset: 0 calc(-1 * var(--gutter)); background: var(--paper); opacity: 0; transition: opacity .4s; z-index: 0; border-radius: 20px; }
+  .row > * { position: relative; }
+  .row:hover::before { opacity: 1; }
+  .row__n { font-weight: 600; color: var(--muted); font-size: .95rem; }
+  .row h2 { font-size: clamp(1.8rem, 3.6vw, 3rem); margin-bottom: 8px; transition: color .3s; }
+  .row:hover h2 { color: var(--blue); }
+  .row__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .row__tags span { font-size: .82rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; }
+  .row__go { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); transition: all .4s var(--ease); background: #fff; }
+  .row:hover .row__go { background: var(--blue); color: #fff; border-color: var(--blue); transform: rotate(45deg); }
+  @media (max-width: 900px) { .row { grid-template-columns: 1fr auto; } .row__n, .row__tags { display: none; } }
+
+  .inds { overflow: hidden; }
+  .inds__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+  .inds__card { display: grid; gap: 18px; padding: 16px; border-radius: 24px; background: rgba(255,255,255,.04); border: 1px solid var(--line-dark); transition: transform .7s var(--ease), border-color .3s, opacity 1s var(--ease); }
+  .inds__card.in:hover { transform: translateY(-6px); border-color: rgba(124,196,255,.35); }
+  .inds__meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 0 6px 6px; }
+  .inds__meta h3 { font-size: 1.2rem; }
+  @media (max-width: 1000px) { .inds__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .inds__grid { grid-template-columns: 1fr; } }
+</style>

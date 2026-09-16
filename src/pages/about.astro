@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import Process from '../components/Process.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const values = [
+  { icon: 'target', title: 'Strategy Before Design', text: 'We understand your goals, customers and competitors before we open a design tool.' },
+  { icon: 'search', title: 'SEO-Friendly Structure', text: 'Clean architecture, headings and schema so search engines understand and rank you.' },
+  { icon: 'chart', title: 'Conversion-Focused Layouts', text: 'Every page guides visitors towards calling, booking or buying.' },
+  { icon: 'phone', title: 'Mobile-First Experience', text: 'Designed for the phone in your customer’s hand first, then scaled up.' },
+  { icon: 'code', title: 'Clean Development', text: 'Lightweight, maintainable builds that load fast and stay secure.' },
+  { icon: 'heart', title: 'Long-Term Growth Support', text: 'Launch is the beginning. We stay on hand to improve and grow with you.' },
+];
+---
+<BaseLayout
+  title="About WebyGrowth | Web Design Agency for UK Small Businesses"
+  description="WebyGrowth helps small businesses compete online with professional websites, better visibility, and digital systems that support growth. Learn about our approach."
+  crumbs={[{ name: 'About', path: '/about/' }]}
+>
+  <section class="ahero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:640px;height:640px;background:#2563eb;right:-200px;top:-260px;opacity:.4"></div>
+    <div class="container ahero__inner">
+      <p class="eyebrow rise">About WebyGrowth</p>
+      <h1 class="display-xl rise" style="--d:.05s">Websites should help<br />your business <span class="grad-text">grow.</span></h1>
+      <div class="ahero__row">
+        <p class="lead rise" style="--d:.1s">Too many great local businesses are held back by outdated, slow or underperforming websites that don't reflect the quality of their work. We started WebyGrowth to change that.</p>
+        <a class="btn btn-primary rise" style="--d:.14s" href="/contact/">Work with us <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mission">
+    <div class="container mission__grid">
+      <p class="eyebrow reveal">Our mission</p>
+      <p class="mission__text reveal" style="--d:.05s">
+        To help small businesses <span class="grad-text">compete online</span> with professional websites, better visibility, and digital systems that support growth.
+      </p>
+      <div class="mission__cols">
+        <div class="reveal">
+          <h2>Who we help</h2>
+          <p class="muted">Small businesses, local service companies and ecommerce brands across the UK — from roofers and cleaners to dental clinics, restaurants and online stores.</p>
+        </div>
+        <div class="reveal" style="--d:.06s">
+          <h2>What we do</h2>
+          <p class="muted">WordPress websites, WooCommerce and Shopify stores, store migrations and SEO — all designed to build trust, communicate clearly and get customers to take action.</p>
+        </div>
+        <div class="reveal" style="--d:.12s">
+          <h2>How we're different</h2>
+          <p class="muted">We don't stop at pretty. Every build is planned around enquiries, sales and search visibility — with honest advice and support after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section values" aria-labelledby="val-title">
+    <div class="container">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal">Our approach</p>
+          <h2 id="val-title" class="display-lg reveal">Six principles behind <span class="serif-i">every</span> project.</h2>
+        </div>
+        <p class="lead reveal">The standards we hold ourselves to — whether it's a five-page site or a full ecommerce store.</p>
+      </div>
+      <div class="val__grid">
+        {values.map((v, i) => (
+          <article class="card val reveal" style={`--d:${(i % 3) * 0.06}s`}>
+            <div class="val__top"><span class="icon-badge"><Icon name={v.icon} /></span><span class="val__n">0{i + 1}</span></div>
+            <h3>{v.title}</h3>
+            <p class="muted">{v.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Process />
+  <Testimonials />
+</BaseLayout>
+
+<style>
+  .ahero { position: relative; overflow: hidden; padding-top: clamp(140px, 17vw, 210px); padding-bottom: clamp(70px, 9vw, 120px); }
+  .ahero__inner { position: relative; display: grid; gap: 28px; }
+  .ahero__row { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; }
+
+  .mission { background: #fff; }
+  .mission__grid { display: grid; gap: 28px; }
+  .mission__text { font-family: var(--font-display); font-size: clamp(1.9rem, 4.6vw, 4rem); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; max-width: 1100px; }
+  .mission__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: clamp(40px, 6vw, 80px); padding-top: 40px; border-top: 1px solid var(--line); }
+  .mission__cols h2 { font-size: 1.5rem; margin-bottom: 12px; }
+  @media (max-width: 860px) { .mission__cols { grid-template-columns: 1fr; gap: 28px; } }
+
+  .values { background: var(--paper); }
+  .val__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .val { display: grid; gap: 14px; align-content: start; }
+  .val__top { display: flex; justify-content: space-between; align-items: center; }
+  .val__n { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: #b8bbc7; }
+  .val h3 { font-size: 1.4rem; margin-top: 12px; }
+  @media (max-width: 900px) { .val__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .val__grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,86 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { NAV_SERVICES, NAV_INDUSTRIES, SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="ftr dark noise">
+  <div class="glow" style="width:520px;height:520px;background:#2563eb;left:-160px;top:-200px;opacity:.25"></div>
+  <div class="container">
+    <div class="ftr__cta reveal">
+      <div>
+        <p class="eyebrow">Let's build something great</p>
+        <h2 class="display-lg">Ready for a website<br />that <span class="grad-text">actually works?</span></h2>
+      </div>
+      <div class="ftr__cta-side">
+        <p class="lead">Get a free, no-obligation audit of your current website — with clear, practical fixes to win more enquiries.</p>
+        <div class="ftr__btns">
+          <a class="btn btn-light" href="/contact/">Start your project <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+          <a class="btn btn-ghost" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <Logo />
+        <p class="muted">WebyGrowth helps small businesses build better websites, improve search visibility, and grow online through WordPress, WooCommerce, Shopify, and SEO services.</p>
+        <p class="ftr__loc"><span class="live"></span> {SITE.area}</p>
+      </div>
+      <div>
+        <p class="ftr__h">Services</p>
+        <ul>{NAV_SERVICES.map((s) => <li><a href={s.href}>{s.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <p class="ftr__h">Industries</p>
+        <ul>{NAV_INDUSTRIES.map((s) => <li><a href={s.href}>{s.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <p class="ftr__h">Company</p>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">All services</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href={`mailto:${SITE.email}`}>Email us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr__word" aria-hidden="true">WebyGrowth</div>
+
+    <div class="ftr__bottom">
+      <p>© {year} WebyGrowth. All rights reserved.</p>
+      <p>Designed & built for growth in the UK.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ftr { position: relative; overflow: hidden; padding-top: clamp(80px, 10vw, 140px); }
+  .ftr__cta { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: end; padding-bottom: clamp(60px, 8vw, 100px); border-bottom: 1px solid var(--line-dark); position: relative; }
+  .ftr__cta .eyebrow { margin-bottom: 22px; }
+  .ftr__cta-side { display: grid; gap: 28px; }
+  .ftr__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ftr__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-block: 70px 40px; position: relative; }
+  .ftr__brand { display: grid; gap: 18px; align-content: start; max-width: 380px; }
+  .ftr__brand p { font-size: .95rem; }
+  .ftr__loc { display: flex; align-items: center; gap: 10px; color: #d7dbea; }
+  .live { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 12px var(--lime); }
+  .ftr__h { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #6f7489; font-weight: 600; margin-bottom: 18px; }
+  .ftr ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .ftr ul a { color: #c3c7d6; font-size: .95rem; transition: color .2s; }
+  .ftr ul a:hover { color: #fff; }
+  .ftr__word {
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -.06em; line-height: .8;
+    font-size: min(12vw, 10.8rem); text-align: center; margin-top: 20px; white-space: nowrap;
+    background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0)); -webkit-background-clip: text; background-clip: text; color: transparent;
+    user-select: none;
+  }
+  .ftr__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-block: 26px 34px; border-top: 1px solid var(--line-dark); color: #6f7489; font-size: .88rem; }
+  @media (max-width: 900px) {
+    .ftr__cta { grid-template-columns: 1fr; }
+    .ftr__grid { grid-template-columns: 1fr 1fr; }
+    .ftr__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) { .ftr__btns .btn { width: 100%; } }
+</style>

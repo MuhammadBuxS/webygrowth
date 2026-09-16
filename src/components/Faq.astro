@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+interface Props { faqs: { q: string; a: string }[]; title?: string }
+const { faqs, title = 'Questions, answered.' } = Astro.props;
+---
+<section class="section faq-sec" aria-labelledby="faq-title">
+  <div class="container faq-sec__grid">
+    <div class="faq-sec__head">
+      <p class="eyebrow reveal">FAQ</p>
+      <h2 id="faq-title" class="display-lg reveal" style="--d:.05s">{title}</h2>
+      <p class="lead reveal" style="--d:.1s">Can't find what you need? <a href="/contact/" class="link">Ask us directly</a> — we reply within one working day.</p>
+    </div>
+    <div class="faq reveal" style="--d:.1s">
+      {faqs.map((f, i) => (
+        <details open={i === 0}>
+          <summary>{f.q}<span class="plus"><Icon name="plus" size={16} stroke={2.2} /></span></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .faq-sec { background: #fff; }
+  .faq-sec__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 7vw, 100px); align-items: start; }
+  .faq-sec__head { display: grid; gap: 22px; position: sticky; top: 130px; }
+  .link { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 900px) { .faq-sec__grid { grid-template-columns: 1fr; } .faq-sec__head { position: static; } }
+</style>

@@ -1,0 +1,372 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import SiteMock from '../components/SiteMock.astro';
+import Process from '../components/Process.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import { SERVICES, INDUSTRIES } from '../data/pages';
+import { HOME_FAQS } from '../data/site';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: HOME_FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+
+const bySlug = (s: string) => SERVICES.find((p) => p.slug === s)!;
+const marquee = ['WordPress', 'Shopify', 'WooCommerce', 'Technical SEO', 'Local SEO', 'Core Web Vitals', 'Store Migrations', 'Conversion Design', 'Mobile First', 'Schema Markup'];
+const otherIndustries = ['Plumbers', 'Electricians', 'Builders', 'Beauty Salons', 'Contractors', 'Home Improvement', 'Ecommerce Brands', 'Local Services'];
+---
+<BaseLayout
+  title="WebyGrowth | Web Design Agency UK for Small Businesses"
+  description="Web design for small businesses that want more leads, sales & visibility. Fast, SEO-ready WordPress, WooCommerce & Shopify websites built by WebyGrowth."
+  schema={[faqSchema]}
+>
+  <!-- HERO -->
+  <section class="hero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:700px;height:700px;background:#2563eb;left:50%;top:-360px;transform:translateX(-50%);opacity:.45"></div>
+    <div class="glow" style="width:420px;height:420px;background:#8b5cf6;right:-120px;top:280px;opacity:.28"></div>
+
+    <div class="container hero__inner">
+      <a href="/contact/" class="pill rise"><span class="dot"></span> Now booking new UK projects <b>Free audit</b></a>
+
+      <h1 class="display-xl hero__title rise" style="--d:.06s">
+        Websites that turn{' '}<br />
+        <span class="hero__swap">visitors into <span class="grad-text">customers.</span></span>
+      </h1>
+
+      <div class="hero__row rise" style="--d:.14s">
+        <p class="lead">Web design for small businesses that want more leads, sales and visibility. We build fast, SEO-ready WordPress, WooCommerce and Shopify websites — engineered for growth from day one.</p>
+        <div class="hero__ctas">
+          <a class="btn btn-primary" href="/contact/">Get free website audit <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+          <a class="btn btn-ghost" href="/services/">View our services</a>
+        </div>
+      </div>
+
+      <ul class="hero__chips rise" style="--d:.2s" aria-label="Every website is">
+        {['SEO Ready', 'Fast Loading', 'Mobile First', 'Built for Leads', 'Conversion Focused'].map((c) => (
+          <li><Icon name="check" size={14} stroke={2.6} /> {c}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="stage container rise" style="--d:.25s">
+      <SiteMock class="stage__side stage__side--l" compact brand="Willow Dental" headline="Gentle dentistry for the whole family." cta="Book now" hue={172} />
+      <SiteMock class="stage__side stage__side--r" compact brand="Ember & Oak" headline="Wood-fired. Locally sourced." cta="Book a table" hue={30} />
+      <SiteMock class="stage__main" brand="Summit Roofing" headline="Roof repairs you can trust." cta="Free roof survey" hue={221} url="summitroofing.co.uk" />
+
+      <div class="float float--score" aria-hidden="true">
+        <svg viewBox="0 0 36 36" width="54" height="54"><circle cx="18" cy="18" r="15.5" fill="none" stroke="#1f3b2a" stroke-width="3"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#3ddc84" stroke-width="3" stroke-dasharray="97.4" stroke-dashoffset="2" stroke-linecap="round" transform="rotate(-90 18 18)"/><text x="18" y="22.5" text-anchor="middle" font-size="11" font-weight="700" fill="#3ddc84">98</text></svg>
+        <div><strong>Performance</strong><small>PageSpeed · Mobile</small></div>
+      </div>
+      <div class="float float--growth" aria-hidden="true">
+        <small>Enquiries</small>
+        <strong>+182%</strong>
+        <svg viewBox="0 0 120 40" width="130" height="42"><defs><linearGradient id="gf" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity=".45"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs><path d="M0 36 L15 32 L30 34 L45 26 L60 28 L75 18 L90 20 L105 9 L120 4 L120 40 L0 40Z" fill="url(#gf)"/><path d="M0 36 L15 32 L30 34 L45 26 L60 28 L75 18 L90 20 L105 9 L120 4" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="float float--lead" aria-hidden="true">
+        <span class="float__ico"><Icon name="mail" size={16} /></span>
+        <div><strong>New enquiry</strong><small>Roof repair quote · just now</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="band" aria-hidden="true">
+    <div class="marquee">
+      {[0, 1].map(() => (
+        <div class="marquee__track">
+          {marquee.map((m) => <span class="band__item"><Icon name="sparkle" size={18} /> {m}</span>)}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- INTRO STATEMENT -->
+  <section class="section statement">
+    <div class="container">
+      <p class="eyebrow reveal">Growth in mind from day one</p>
+      <p class="statement__text reveal" style="--d:.06s">
+        Most small business websites look fine but <span class="statement__dim">quietly lose customers.</span>{" "}
+        We design sites that build <span class="hl">trust</span>, rank on <span class="hl">Google</span>, and make it
+        effortless to <span class="hl">get in touch.</span>
+      </p>
+      <div class="stats">
+        <div class="stat reveal"><strong><span data-count="182">182</span>%</strong><span>Increase in enquiries from better structure, speed &amp; SEO</span></div>
+        <div class="stat reveal" style="--d:.06s"><strong>2–4<small>wks</small></strong><span>Typical launch time for a small business website</span></div>
+        <div class="stat reveal" style="--d:.12s"><strong><span data-count="100">100</span>%</strong><span>Mobile-first, responsive builds on every project</span></div>
+        <div class="stat reveal" style="--d:.18s"><strong><span data-count="90">90</span>+</strong><span>PageSpeed performance target before we launch</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES BENTO -->
+  <section class="section services" aria-labelledby="svc-title">
+    <div class="container">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal">Our services</p>
+          <h2 id="svc-title" class="display-lg reveal" style="--d:.05s">Digital services built for <span class="serif-i">business growth.</span></h2>
+        </div>
+        <p class="lead reveal" style="--d:.1s">Everything you need to look credible online, get found on Google, and turn clicks into paying customers — under one roof.</p>
+      </div>
+
+      <div class="bento">
+        <a href="/wordpress-website-design/" class="card bento__item b-wp reveal">
+          <div class="bento__top">
+            <span class="icon-badge"><Icon name="wordpress" /></span>
+            <span class="bento__go"><Icon name="arrow-up-right" size={20} /></span>
+          </div>
+          <h3>WordPress Design &amp; Development</h3>
+          <p class="muted">{bySlug('wordpress-website-design').short}</p>
+          <div class="wp-vis" aria-hidden="true">
+            <div class="wp-vis__side"><i></i><i></i><i></i><i></i></div>
+            <div class="wp-vis__main">
+              <span class="wp-vis__title">Home — Edit page</span>
+              <span class="wp-vis__block"><b>H1</b> Trusted local roofers</span>
+              <span class="wp-vis__block"><b>¶</b> Free quotes across Yorkshire…</span>
+              <span class="wp-vis__block wp-vis__block--btn">Publish</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/seo-services/" class="card bento__item b-seo dark-card reveal" style="--d:.06s">
+          <div class="bento__top">
+            <span class="icon-badge"><Icon name="search" /></span>
+            <span class="bento__go"><Icon name="arrow-up-right" size={20} /></span>
+          </div>
+          <h3>SEO Services</h3>
+          <p class="muted">{bySlug('seo-services').short}</p>
+          <div class="serp" aria-hidden="true">
+            <div class="serp__bar"><Icon name="search" size={14} /> roofer near me</div>
+            <div class="serp__row is-you"><span>1</span><div><b>Your Business</b><i></i></div><em>▲ 7</em></div>
+            <div class="serp__row"><span>2</span><div><b></b><i></i></div></div>
+            <div class="serp__row"><span>3</span><div><b></b><i></i></div></div>
+          </div>
+        </a>
+
+        {['woocommerce-store-design', 'shopify-store-design', 'store-migrations'].map((slug, i) => {
+          const s = bySlug(slug);
+          return (
+            <a href={`/${s.slug}/`} class="card bento__item b-sm reveal" style={`--d:${0.06 * i}s`}>
+              <div class="bento__top">
+                <span class="icon-badge"><Icon name={s.icon} /></span>
+                <span class="bento__go"><Icon name="arrow-up-right" size={20} /></span>
+              </div>
+              <h3>{s.label}</h3>
+              <p class="muted">{s.short}</p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT ENOUGH -->
+  <section class="section dark compare noise" aria-labelledby="cmp-title">
+    <div class="glow" style="width:600px;height:600px;background:#2563eb;left:-240px;bottom:-200px;opacity:.3"></div>
+    <div class="container">
+      <div class="sec-head" style="text-align:center;justify-items:center">
+        <p class="eyebrow reveal">The difference</p>
+        <h2 id="cmp-title" class="display-lg reveal" style="--d:.05s">A beautiful website<br />is <span class="grad-text">not enough.</span></h2>
+        <p class="lead reveal" style="--d:.1s">Your website should be your hardest-working salesperson. Here's what separates a pretty brochure from a growth engine.</p>
+      </div>
+
+      <div class="compare__grid">
+        <div class="compare__col compare__col--bad reveal">
+          <p class="compare__label">Typical small business website</p>
+          <ul>
+            {['Slow to load on mobile', 'Generic template design', 'Invisible on Google', 'Buried contact details', 'No tracking or insight', 'Hard to update'].map((x) => (
+              <li><span class="x"><Icon name="x" size={13} stroke={2.6} /></span>{x}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare__col compare__col--good reveal" style="--d:.08s">
+          <p class="compare__label"><span class="compare__logo">G</span> A WebyGrowth website</p>
+          <ul>
+            {['Loads in under 2 seconds', 'Bespoke, brand-led design', 'SEO structure built in', 'Calls-to-action on every screen', 'Analytics & lead tracking', 'Easy for you to edit'].map((x) => (
+              <li><span class="v"><Icon name="check" size={13} stroke={2.8} /></span>{x}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section industries" aria-labelledby="ind-title">
+    <div class="container">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow reveal">Industries</p>
+          <h2 id="ind-title" class="display-lg reveal" style="--d:.05s">Websites built for <span class="serif-i">your</span> industry.</h2>
+        </div>
+        <p class="lead reveal" style="--d:.1s">Local businesses, tradesmen, clinics, restaurants and online stores — each with a structure designed around how their customers actually buy.</p>
+      </div>
+
+      <div class="ind__grid">
+        {INDUSTRIES.map((p, i) => (
+          <a href={`/${p.slug}/`} class="ind reveal" style={`--d:${i * 0.06}s; --h:${p.mock.hue}`}>
+            <div class="ind__vis">
+              <SiteMock compact brand={p.mock.brand} headline={p.mock.headline} cta={p.mock.cta} hue={p.mock.hue} />
+            </div>
+            <div class="ind__meta">
+              <div>
+                <h3>{p.label.replace(' Design', 's')}</h3>
+                <p class="muted">{p.short}</p>
+              </div>
+              <span class="bento__go"><Icon name="arrow-up-right" size={20} /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="ind__more reveal">
+        <span class="muted">Also building for</span>
+        {otherIndustries.map((x) => <span class="tag">{x}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <Process />
+  <Testimonials />
+  <Faq faqs={HOME_FAQS} />
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero { position: relative; overflow: hidden; padding-top: clamp(130px, 16vw, 190px); padding-bottom: 0; }
+  .hero__inner { position: relative; display: grid; gap: 32px; justify-items: start; }
+  .hero__title { max-width: none; }
+  .hero__swap { white-space: nowrap; }
+  @media (max-width: 640px) { .hero__swap { white-space: normal; } .hero__title br { display: none; } }
+  .hero__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; width: 100%; }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero__chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; color: #b9bed0; font-size: .92rem; }
+  .hero__chips li { display: flex; align-items: center; gap: 8px; }
+  .hero__chips :global(svg) { color: var(--lime); }
+  @media (max-width: 900px) { .hero__row { grid-template-columns: 1fr; } }
+
+  .stage { position: relative; margin-top: clamp(56px, 7vw, 90px); height: clamp(300px, 46vw, 560px); perspective: 1600px; }
+  .stage :global(.stage__main) { position: absolute; left: 50%; top: 0; width: min(760px, 88%); transform: translateX(-50%); z-index: 3; }
+  .stage :global(.stage__side) { position: absolute; top: 60px; width: min(460px, 44%); z-index: 1; opacity: .55; filter: saturate(.8); }
+  .stage :global(.stage__side--l) { left: 0; transform: rotateY(18deg) rotateZ(-3deg); }
+  .stage :global(.stage__side--r) { right: 0; transform: rotateY(-18deg) rotateZ(3deg); }
+  .stage::after { content: ''; position: absolute; inset: auto -100vw 0; height: 45%; background: linear-gradient(transparent, var(--ink) 85%); z-index: 4; pointer-events: none; }
+
+  .float { position: absolute; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 18px; color: #fff;
+    background: rgba(16, 18, 28, .78); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); animation: bob 6s ease-in-out infinite; }
+  .float strong { display: block; font-size: .92rem; }
+  .float small { color: #9aa0b4; font-size: .78rem; }
+  .float--score { left: max(2%, calc(50% - 470px)); top: 22%; }
+  .float--growth { right: max(2%, calc(50% - 480px)); top: 8%; flex-direction: column; align-items: flex-start; gap: 0; animation-delay: -2s; }
+  .float--growth strong { font-family: var(--font-display); font-size: 2rem; letter-spacing: -.04em; line-height: 1.1; }
+  .float--lead { right: max(4%, calc(50% - 440px)); top: 52%; animation-delay: -4s; }
+  .float__ico { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--lime); color: var(--ink); }
+  @keyframes bob { 50% { transform: translateY(-12px); } }
+  @media (max-width: 760px) {
+    .stage :global(.stage__side) { display: none; }
+    .stage :global(.stage__main) { width: 100%; }
+    .float--score { display: none; }
+    .float--growth { right: 0; top: -30px; transform: scale(.85); }
+    .float--lead { display: none; }
+  }
+
+  /* BAND */
+  .band { background: var(--ink); color: #fff; padding-block: 26px 32px; border-bottom: 1px solid var(--line-dark); }
+  .band__item { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 2rem); font-weight: 600; letter-spacing: -.03em; white-space: nowrap; color: #e6e9f2; }
+  .band__item :global(svg) { color: var(--blue-2); }
+
+  /* STATEMENT */
+  .statement__text { font-family: var(--font-display); font-size: clamp(1.9rem, 4.4vw, 3.9rem); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; margin: 26px 0 clamp(60px, 8vw, 100px); max-width: 22ch; max-width: 1100px; }
+  .statement__dim { color: #a3a6b3; }
+  .hl { background: linear-gradient(transparent 62%, rgba(59,130,246,.25) 62%); padding-inline: 2px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .stat { padding: 30px 26px 0 0; display: grid; gap: 10px; align-content: start; }
+  .stat + .stat { padding-left: 26px; border-left: 1px solid var(--line); }
+  .stat strong { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.05em; font-weight: 700; }
+  .stat strong small { font-size: .4em; letter-spacing: -.02em; margin-left: 4px; color: var(--muted); }
+  .stat > span { color: var(--muted); font-size: .95rem; max-width: 24ch; }
+  @media (max-width: 860px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat, .stat + .stat { padding: 26px 16px 26px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  }
+
+  /* SERVICES */
+  .services { background: #fff; }
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .bento__item { display: flex; flex-direction: column; gap: 14px; min-height: 280px; }
+  .bento__item h3 { font-size: clamp(1.4rem, 2vw, 1.75rem); margin-top: 18px; }
+  .bento__top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .bento__go { width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); transition: all .4s var(--ease); }
+  .bento__item:hover .bento__go, .ind:hover .bento__go { background: var(--blue); border-color: var(--blue); color: #fff; transform: rotate(45deg); }
+  .b-wp { grid-column: span 7; background: linear-gradient(160deg, #fff 40%, #eef3ff); }
+  .b-seo { grid-column: span 5; }
+  .b-sm { grid-column: span 4; }
+  .dark-card { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .dark-card .muted { color: var(--muted-dark); }
+  .dark-card .bento__go { border-color: rgba(255,255,255,.15); }
+  .dark-card .icon-badge { background: rgba(59,130,246,.18); color: var(--sky); box-shadow: none; }
+  @media (max-width: 960px) { .b-wp, .b-seo { grid-column: span 12; } .b-sm { grid-column: span 6; } .b-sm:last-child { grid-column: span 12; } }
+  @media (max-width: 620px) { .b-sm, .b-sm:last-child { grid-column: span 12; } }
+
+  .wp-vis { margin-top: auto; display: grid; grid-template-columns: 54px 1fr; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 20px 40px -24px rgba(20,40,120,.3); transform: translateY(12px); transition: transform .5s var(--ease); }
+  .b-wp:hover .wp-vis { transform: translateY(0); }
+  .wp-vis__side { background: #1d2327; padding: 14px 12px; display: grid; gap: 10px; align-content: start; }
+  .wp-vis__side i { height: 6px; border-radius: 3px; background: rgba(255,255,255,.25); }
+  .wp-vis__side i:first-child { background: var(--blue-2); }
+  .wp-vis__main { padding: 14px; display: grid; gap: 8px; }
+  .wp-vis__title { font-size: .78rem; font-weight: 600; color: var(--muted); }
+  .wp-vis__block { font-size: .85rem; padding: 9px 12px; border-radius: 9px; border: 1px dashed #cdd5e8; display: flex; gap: 10px; align-items: center; }
+  .wp-vis__block b { font-size: .7rem; color: var(--blue); background: #eef3ff; border-radius: 5px; padding: 1px 6px; }
+  .wp-vis__block--btn { justify-self: end; background: var(--blue); color: #fff; border: 0; font-weight: 600; font-size: .78rem; padding: 7px 14px; }
+
+  .serp { margin-top: auto; display: grid; gap: 8px; }
+  .serp__bar { display: flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.07); color: #c9cdda; font-size: .85rem; }
+  .serp__row { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,.03); }
+  .serp__row span { font-weight: 700; color: #6f7489; font-size: .85rem; }
+  .serp__row div { display: grid; gap: 5px; }
+  .serp__row b { display: block; height: 7px; width: 55%; border-radius: 4px; background: rgba(255,255,255,.14); font-size: .85rem; }
+  .serp__row i { display: block; height: 5px; width: 80%; border-radius: 3px; background: rgba(255,255,255,.07); }
+  .serp__row.is-you { background: linear-gradient(90deg, rgba(59,130,246,.3), rgba(139,92,246,.15)); box-shadow: inset 0 0 0 1px rgba(124,196,255,.35); }
+  .serp__row.is-you span { color: var(--lime); }
+  .serp__row.is-you b { background: none; height: auto; width: auto; color: #fff; }
+  .serp__row em { font-style: normal; font-size: .78rem; font-weight: 700; color: var(--lime); }
+
+  /* COMPARE */
+  .compare { overflow: hidden; }
+  .compare__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 1000px; margin-inline: auto; position: relative; }
+  .compare__col { border-radius: var(--radius); padding: clamp(28px, 4vw, 44px); border: 1px solid var(--line-dark); }
+  .compare__col--bad { background: rgba(255,255,255,.02); }
+  .compare__col--bad li { color: #8a8fa3; }
+  .compare__col--good { background: linear-gradient(160deg, rgba(37,99,235,.35), rgba(139,92,246,.15) 60%, rgba(255,255,255,.02)); border-color: rgba(124,196,255,.3); box-shadow: 0 40px 100px -40px rgba(37,99,235,.6); }
+  .compare__label { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 26px; }
+  .compare__logo { width: 30px; height: 30px; border-radius: 9px; background: var(--blue); display: grid; place-items: center; font-weight: 800; font-size: 1rem; }
+  .compare ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+  .compare li { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line-dark); }
+  .compare li:last-child { border-bottom: 0; }
+  .x, .v { width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; }
+  .x { background: rgba(255, 95, 87, .14); color: #ff7b73; }
+  .v { background: var(--lime); color: var(--ink); }
+  @media (max-width: 760px) { .compare__grid { grid-template-columns: 1fr; } }
+
+  /* INDUSTRIES */
+  .industries { background: var(--paper); }
+  .ind__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .ind { display: grid; border-radius: 28px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .7s var(--ease), box-shadow .5s var(--ease), opacity 1s var(--ease); }
+  .ind.in:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -40px rgba(10,20,60,.3); }
+  .ind__vis { padding: clamp(24px, 4vw, 44px) clamp(24px, 4vw, 44px) 0; background: radial-gradient(120% 90% at 50% 0%, hsl(var(--h) 80% 90%), hsl(var(--h) 40% 97%) 70%); overflow: hidden; height: clamp(220px, 26vw, 300px); }
+  .ind__vis :global(.browser) { transition: transform .7s var(--ease); box-shadow: 0 30px 60px -30px hsl(var(--h) 60% 30% / .5); }
+  .ind:hover .ind__vis :global(.browser) { transform: translateY(-10px) scale(1.02); }
+  .ind__meta { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px clamp(24px, 3vw, 34px); }
+  .ind__meta h3 { font-size: 1.55rem; margin-bottom: 6px; }
+  .ind__meta p { font-size: .95rem; }
+  .ind__more { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .ind__more .muted { margin-right: 8px; font-size: .95rem; }
+  .tag { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-size: .9rem; font-weight: 500; }
+  @media (max-width: 800px) { .ind__grid { grid-template-columns: 1fr; } }
+</style>

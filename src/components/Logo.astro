@@ -1,0 +1,17 @@
+---
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+---
+<a href="/" class:list={['logo', cls]} aria-label="WebyGrowth home">
+  <span class="logo__mark" aria-hidden="true">
+    <svg viewBox="0 0 64 64" width="34" height="34"><rect width="64" height="64" rx="18" fill="currentColor" class="logo__bg"/><path d="M44.5 22.6c-2.9-2.1-6.2-3.1-9.8-3.1-8 0-13.6 5.4-13.6 12.9 0 7.6 5.3 12.9 13.3 12.9 4.2 0 7.9-1.2 10.9-3.5V30.5H33.4v5.6h5.2v2.9c-1.1.5-2.4.7-3.8.7-4.1 0-6.8-2.8-6.8-7.3 0-4.4 2.9-7.3 7.2-7.3 2.5 0 4.7.8 6.8 2.4z" fill="#3b82f6"/></svg>
+  </span>
+  <span class="logo__word">Weby<span>Growth</span></span>
+</a>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.04em; }
+  .logo__mark { color: var(--ink); transition: transform .6s var(--ease); }
+  .logo:hover .logo__mark { transform: rotate(-12deg) scale(1.05); }
+  .logo__word span { color: var(--blue-2); }
+  :global(.dark) .logo__mark, :global(.on-dark) .logo__mark { color: #1a1d2b; }
+</style>
