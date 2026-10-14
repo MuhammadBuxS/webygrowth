@@ -38,6 +38,8 @@ ${posts.map((p) => `- [${p.data.title}](${SITE.url}/blog/${p.id}/): ${p.data.des
 - [About](${SITE.url}/about/): Our mission is to help small businesses compete online with professional websites, better visibility, and digital systems that support growth.
 - [All services](${SITE.url}/services/)
 - [Contact / free website audit](${SITE.url}/contact/)
+- [All FAQs](${SITE.url}/faq/)
+- [Full reference for AI assistants](${SITE.url}/llms-full.txt)
 
 ## FAQ
 

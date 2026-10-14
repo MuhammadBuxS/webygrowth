@@ -6,6 +6,7 @@ import Process from '../components/Process.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import { PAGES, SERVICES, INDUSTRIES, type ServicePage } from '../data/pages';
+import { PAGE_FAQS } from '../data/faqs';
 import { SITE, waLink } from '../data/site';
 import BlogCard from '../components/BlogCard.astro';
 import { getPosts } from '../lib/posts';
@@ -17,6 +18,7 @@ export function getStaticPaths() {
 const { page } = Astro.props as { page: ServicePage };
 const url = `${SITE.url}/${page.slug}/`;
 const related = (page.kind === 'service' ? SERVICES : INDUSTRIES).filter((p) => p.slug !== page.slug).slice(0, 3);
+const pageFaqs = [...page.faqs, ...(PAGE_FAQS[page.slug] ?? [])];
 const waMsg = `Hi WebyGrowth, I'm interested in ${page.label}. Can we discuss my project?`;
 const allPosts = await getPosts();
 const guides = [
@@ -31,7 +33,7 @@ const schema = [
     '@type': 'Service',
     name: page.label,
     serviceType: page.label,
-    description: page.metaDescription,
+    description: page.quickAnswer,
     url,
     provider: { '@id': `${SITE.url}/#organization` },
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
@@ -39,7 +41,7 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: page.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    mainEntity: pageFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
   },
 ];
 const crumbs = [
@@ -60,6 +62,10 @@ const crumbs = [
         <p class="eyebrow rise" style="--d:.04s">{page.eyebrow}</p>
         <h1 class="display-lg rise" style="--d:.08s">{page.h1} <span class="grad-text">{page.h1Accent}</span></h1>
         <p class="lead rise" style="--d:.12s">{page.intro}</p>
+        <div class="quick rise" style="--d:.14s">
+          <p class="quick__k">Quick answer</p>
+          <p>{page.quickAnswer}</p>
+        </div>
         <div class="phero__ctas rise" style="--d:.16s">
           <a class="btn btn-wa" href={waLink(waMsg)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Get a quote on WhatsApp</a>
           <a class="btn btn-ghost" href="/contact/">Send an enquiry</a>
@@ -123,7 +129,7 @@ const crumbs = [
 
   <Process />
   <Testimonials />
-  <Faq faqs={page.faqs} title={`${page.kind === 'service' ? page.label : 'Your website'} questions.`} />
+  <Faq faqs={pageFaqs} title={`${page.kind === 'service' ? page.label : 'Your website'} questions.`} />
 
   {guides.length > 0 && (
     <section class="section guides" aria-labelledby="guides-title">
@@ -169,6 +175,8 @@ const crumbs = [
   .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #8a8fa3; }
   .crumbs a:hover { color: #fff; }
   .crumbs [aria-current] { color: #d7dbea; }
+  .quick { max-width: 62ch; padding: 18px 22px; border-radius: 16px; background: rgba(124,196,255,.08); border: 1px solid rgba(124,196,255,.22); border-left: 3px solid var(--sky); color: #dfe3ee; font-size: .98rem; line-height: 1.6; }
+  .quick__k { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: 6px; }
   .phero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
   .phero__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; color: #b9bed0; font-size: .9rem; }
   .phero__chips li { display: flex; align-items: center; gap: 8px; }

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { FAQ_GROUPS, PAGE_FAQS } from '../data/faqs';
+import { PAGES } from '../data/pages';
+import { SITE, HOME_FAQS, waLink } from '../data/site';
+
+const groups = [
+  ...FAQ_GROUPS,
+  { title: 'Timelines & support', intro: 'How long things take and what happens after launch.', faqs: HOME_FAQS },
+];
+
+// Every FAQ on the site, so this page can answer anything an AI assistant is asked.
+const pageGroups = PAGES.map((p) => ({
+  title: p.label,
+  href: `/${p.slug}/`,
+  faqs: [...p.faqs, ...(PAGE_FAQS[p.slug] ?? [])],
+}));
+
+const everyFaq = [...groups.flatMap((g) => g.faqs), ...pageGroups.flatMap((g) => g.faqs)];
+const seen = new Set<string>();
+const uniqueFaqs = everyFaq.filter((f) => (seen.has(f.q) ? false : seen.add(f.q)));
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${SITE.url}/faq/#faq`,
+    mainEntity: uniqueFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="Web Design & SEO FAQs | WebyGrowth"
+  description="Answers to common questions about web design, WordPress, Shopify, WooCommerce and SEO for UK small businesses — timelines, quotes, support and getting started."
+  crumbs={[{ name: 'FAQs', path: '/faq/' }]}
+  schema={schema}
+>
+  <section class="fhero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:620px;height:620px;background:#2563eb;left:50%;top:-340px;transform:translateX(-50%);opacity:.4"></div>
+    <div class="container fhero__inner">
+      <p class="eyebrow rise">FAQs</p>
+      <h1 class="display-xl rise" style="--d:.05s">Straight answers,<br />no <span class="grad-text">sales waffle.</span></h1>
+      <p class="lead rise" style="--d:.1s">{uniqueFaqs.length} questions UK business owners actually ask us about websites, online stores and SEO — answered properly.</p>
+      <div class="fhero__ctas rise" style="--d:.14s">
+        <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I have a question about my website.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Ask on WhatsApp</a>
+        <a class="btn btn-ghost" href="/contact/">Send an enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fbody">
+    <div class="container fbody__grid">
+      <aside class="fnav">
+        <p class="fnav__t">Jump to</p>
+        <ol>
+          {groups.map((g) => <li><a href={`#${g.title.toLowerCase().replace(/[^a-z]+/g, '-')}`}>{g.title}</a></li>)}
+          <li><a href="#by-service">By service</a></li>
+        </ol>
+      </aside>
+
+      <div class="fmain">
+        {groups.map((g) => (
+          <section class="fgroup" id={g.title.toLowerCase().replace(/[^a-z]+/g, '-')}>
+            <h2>{g.title}</h2>
+            {g.intro && <p class="muted fgroup__intro">{g.intro}</p>}
+            <div class="faq">
+              {g.faqs.map((f) => (
+                <details>
+                  <summary>{f.q}<span class="plus"><Icon name="plus" size={16} stroke={2.2} /></span></summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <section class="fgroup" id="by-service">
+          <h2>Questions by service</h2>
+          <p class="muted fgroup__intro">Everything specific to each type of build.</p>
+          {pageGroups.map((g) => (
+            <div class="fsvc">
+              <div class="fsvc__head">
+                <h3>{g.title}</h3>
+                <a href={g.href}>View service <Icon name="arrow" size={15} /></a>
+              </div>
+              <div class="faq">
+                {g.faqs.map((f) => (
+                  <details>
+                    <summary>{f.q}<span class="plus"><Icon name="plus" size={16} stroke={2.2} /></span></summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <div class="fend">
+          <h2>Still not sure?</h2>
+          <p class="muted">Send us your question on WhatsApp and you'll get a straight answer, usually the same working day — no obligation and no sales pressure.</p>
+          <div class="fend__btns">
+            <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I have a question about my website.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Ask on WhatsApp</a>
+            <a class="btn btn-ghost" href="/contact/">Request a free audit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .fhero { position: relative; overflow: hidden; padding-top: clamp(140px, 17vw, 200px); padding-bottom: clamp(60px, 8vw, 100px); }
+  .fhero__inner { position: relative; display: grid; gap: 26px; justify-items: start; }
+  .fhero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .fbody { background: #fff; }
+  .fbody__grid { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .fnav { position: sticky; top: 120px; }
+  .fnav__t { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+  .fnav ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  .fnav a { font-size: .93rem; color: var(--muted); transition: color .2s; }
+  .fnav a:hover { color: var(--blue); }
+  .fgroup { margin-bottom: clamp(44px, 5vw, 70px); scroll-margin-top: 110px; }
+  .fgroup > h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -.035em; }
+  .fgroup__intro { margin-top: 8px; margin-bottom: 22px; }
+  .fsvc { margin-top: 36px; }
+  .fsvc__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+  .fsvc__head h3 { font-size: 1.3rem; }
+  .fsvc__head a { display: inline-flex; align-items: center; gap: 7px; font-size: .9rem; font-weight: 600; color: var(--blue); }
+  .fend { padding: clamp(28px, 4vw, 44px); border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); display: grid; gap: 14px; justify-items: start; }
+  .fend h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+  .fend__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+  @media (max-width: 900px) {
+    .fbody__grid { grid-template-columns: 1fr; }
+    .fnav { position: static; display: none; }
+  }
+</style>

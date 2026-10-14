@@ -13,6 +13,8 @@ export type ServicePage = {
   h1Accent: string;
   intro: string;
   short: string;
+  /** 40-60 word answer-first summary, written to be quoted by AI assistants. */
+  quickAnswer: string;
   benefits: Feature[];
   deliverables: string[];
   faqs: Faq[];
@@ -34,6 +36,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Custom WordPress websites designed to look professional, load fast, and turn visitors into enquiries — and simple enough for you to update yourself.',
     short: 'Custom WordPress websites designed to look professional, load fast, and turn visitors into enquiries.',
+    quickAnswer:
+      'WordPress website design by WebyGrowth means a custom-built, fast-loading WordPress site for a UK small business, designed around enquiries rather than decoration. Builds typically take 2-4 weeks, include SEO foundations, lead forms and analytics, and leave you able to edit the content yourself.',
     benefits: [
       { title: 'Bespoke design', text: 'No recycled templates. A layout shaped around your services, customers and brand.' },
       { title: 'Lightning fast', text: 'Lean themes, optimised images and caching for green Core Web Vitals scores.' },
@@ -74,6 +78,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Flexible WooCommerce stores built for striking product presentation, a smooth shopping journey, and effortless day-to-day management.',
     short: 'Flexible WooCommerce stores built for product presentation, smooth shopping, and easy management.',
+    quickAnswer:
+      'WooCommerce store design means building an online shop on WordPress that you fully own, with no platform transaction fees. WebyGrowth designs the storefront, product and checkout experience, configures UK payments, shipping and VAT, and sets up product schema so your pages can rank.',
     benefits: [
       { title: 'Own your platform', text: 'No platform lock-in or transaction fees — full control of your store and data.' },
       { title: 'Conversion-first checkout', text: 'Streamlined checkout flows that reduce abandonment and increase order value.' },
@@ -114,6 +120,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Modern Shopify stores with premium layouts, mobile-first shopping experiences, and conversion-focused sections that turn browsers into buyers.',
     short: 'Modern Shopify stores with premium layouts, mobile-first shopping experiences, and conversion-focused sections.',
+    quickAnswer:
+      'Shopify store design means shaping a hosted Shopify storefront around your brand and buying journey. WebyGrowth customises themes and sections, optimises product pages and mobile checkout, keeps the app stack lean for speed, and typically delivers a store in 3-5 weeks.',
     benefits: [
       { title: 'Premium brand feel', text: 'Custom-styled themes that make your products look as good as they are.' },
       { title: 'Mobile-first shopping', text: 'Thumb-friendly navigation, fast product pages and one-tap checkout.' },
@@ -154,6 +162,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Move your products, pages, customers and store structure from one platform to another with a clean migration strategy that protects your rankings and revenue.',
     short: 'Move your products, pages, and store structure from one platform to another with a clean migration strategy.',
+    quickAnswer:
+      'An ecommerce store migration moves products, customers, content and URLs from one platform to another without losing search rankings or sales. WebyGrowth maps every important URL to a 301 redirect, rebuilds on staging, tests, then switches over with little or no downtime.',
     benefits: [
       { title: 'Zero data loss', text: 'Products, variants, customers, orders and reviews moved accurately.' },
       { title: 'SEO protected', text: 'Full 301 redirect mapping so your search rankings carry over.' },
@@ -194,6 +204,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'SEO services designed to improve your search visibility, content structure, rankings and local presence — so the right customers find you first.',
     short: 'SEO services designed to improve your search visibility, content structure, rankings, and local presence.',
+    quickAnswer:
+      'SEO services improve how often your business appears in Google for searches that bring enquiries. WebyGrowth fixes technical issues, structures service and location pages around real search demand, optimises your Google Business Profile, and reports progress in plain English each month.',
     benefits: [
       { title: 'Technical SEO', text: 'Fix crawl issues, speed, indexing and Core Web Vitals holding you back.' },
       { title: 'Local SEO', text: 'Google Business Profile optimisation and local landing pages that rank in your area.' },
@@ -234,6 +246,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Show off your work, build instant trust and make it effortless for homeowners to request a quote — from any phone, in any postcode you cover.',
     short: 'Quote-focused websites for roofers that build trust and rank locally.',
+    quickAnswer:
+      'A roofing website should make requesting a quote effortless and prove your work quickly. WebyGrowth builds roofer websites with sticky call buttons, short quote forms, before-and-after galleries, accreditation badges and local area pages, usually launching within 2-4 weeks.',
     benefits: [
       { title: 'Quote requests first', text: 'Sticky call buttons and short quote forms on every page.' },
       { title: 'Project galleries', text: 'Before-and-after showcases that prove the quality of your work.' },
@@ -265,6 +279,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Spotless, trustworthy websites for domestic and commercial cleaning companies — with instant quotes, clear pricing and local visibility.',
     short: 'Trust-building websites that help cleaning companies win regular clients.',
+    quickAnswer:
+      'A cleaning company website should pre-qualify enquiries and build trust fast. WebyGrowth builds cleaning websites with instant quote forms, separate domestic and commercial journeys, clear pricing packages, insurance and vetting signals, and local SEO for the areas you cover.',
     benefits: [
       { title: 'Instant quote forms', text: 'Collect property size, frequency and service in seconds.' },
       { title: 'Domestic & commercial', text: 'Separate journeys for homeowners and business clients.' },
@@ -296,6 +312,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Calm, reassuring and professional websites that help anxious patients choose you — and make booking an appointment effortless.',
     short: 'Calm, professional websites that attract new patients to dental practices.',
+    quickAnswer:
+      'A dental website should reassure nervous patients and make booking simple. WebyGrowth builds practice websites with dedicated treatment pages, transparent fees and finance information, team profiles, online booking integration and accessible, fast, mobile-first design.',
     benefits: [
       { title: 'Patient reassurance', text: 'Warm design, team profiles and clear information that ease nerves.' },
       { title: 'Treatment pages', text: 'Implants, Invisalign, whitening and more — each page built to rank.' },
@@ -327,6 +345,8 @@ export const PAGES: ServicePage[] = [
     intro:
       'Mouth-watering websites for restaurants, cafés and takeaways — with mobile menus, reservations and direct ordering that skip the commission.',
     short: 'Appetising, mobile-first websites that fill tables for restaurants and cafés.',
+    quickAnswer:
+      'A restaurant website should answer menu, location, opening hours and booking questions within seconds. WebyGrowth builds restaurant websites with fast mobile menus instead of PDFs, reservation integrations, commission-free direct ordering and local SEO so you appear in nearby searches.',
     benefits: [
       { title: 'Menus that sell', text: 'Fast, readable mobile menus — no clunky PDF downloads.' },
       { title: 'Table reservations', text: 'Integrate OpenTable, ResDiary or your preferred system.' },

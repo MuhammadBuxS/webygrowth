@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import { SITE } from '../data/site';
+import { PAGES } from '../data/pages';
 
 interface Crumb { name: string; path: string }
 interface Props {
@@ -36,8 +37,37 @@ const org = {
     availableLanguage: ['English'],
   },
   description: SITE.description,
-  areaServed: { '@type': 'Country', name: 'United Kingdom' },
-  knowsAbout: ['Web design', 'WordPress', 'WooCommerce', 'Shopify', 'SEO', 'Ecommerce'],
+  alternateName: ['Weby Growth', 'WebyGrowth Web Design'],
+  slogan: 'Websites that turn visitors into customers.',
+  areaServed: [
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'AdministrativeArea', name: 'England' },
+    { '@type': 'AdministrativeArea', name: 'Scotland' },
+    { '@type': 'AdministrativeArea', name: 'Wales' },
+    { '@type': 'AdministrativeArea', name: 'Northern Ireland' },
+  ],
+  knowsLanguage: ['en-GB'],
+  knowsAbout: [
+    'Web design', 'Website design for small businesses', 'WordPress', 'WooCommerce', 'Shopify',
+    'Ecommerce website design', 'Store migration', 'Search engine optimisation', 'Local SEO',
+    'Core Web Vitals', 'Conversion rate optimisation',
+  ],
+  serviceType: ['Web design', 'Ecommerce website design', 'SEO services'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Web design and SEO services',
+    itemListElement: PAGES.map((p) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: p.label,
+        description: p.short,
+        url: `${SITE.url}/${p.slug}/`,
+        provider: { '@id': `${SITE.url}/#organization` },
+        areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      },
+    })),
+  },
 };
 const website = {
   '@context': 'https://schema.org',
@@ -92,6 +122,8 @@ const graph = [org, website, webpage, breadcrumb, ...schema].filter(Boolean);
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full reference for AI assistants" />
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="WebyGrowth Insights" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />

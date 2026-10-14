@@ -9,6 +9,9 @@ const { faqs, title = 'Questions, answered.' } = Astro.props;
       <p class="eyebrow reveal">FAQ</p>
       <h2 id="faq-title" class="display-lg reveal" style="--d:.05s">{title}</h2>
       <p class="lead reveal" style="--d:.1s">Can't find what you need? <a href="/contact/" class="link">Ask us directly</a> — we reply within one working day.</p>
+      {Astro.url.pathname !== '/faq/' && (
+        <a class="btn btn-ghost reveal" style="--d:.14s" href="/faq/">See all FAQs <Icon name="arrow" size={15} /></a>
+      )}
     </div>
     <div class="faq reveal" style="--d:.1s">
       {faqs.map((f, i) => (
@@ -23,7 +26,7 @@ const { faqs, title = 'Questions, answered.' } = Astro.props;
 <style>
   .faq-sec { background: #fff; }
   .faq-sec__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 7vw, 100px); align-items: start; }
-  .faq-sec__head { display: grid; gap: 22px; position: sticky; top: 130px; }
+  .faq-sec__head { display: grid; gap: 22px; justify-items: start; position: sticky; top: 130px; }
   .link { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 900px) { .faq-sec__grid { grid-template-columns: 1fr; } .faq-sec__head { position: static; } }
 </style>

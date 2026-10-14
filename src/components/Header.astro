@@ -36,6 +36,9 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
                 <Icon name={iconFor(s.href)} size={16} /> {s.label}
               </a>
             ))}
+            <a class="mega__link" href="/faq/" role="menuitem">
+              <Icon name="quote" size={16} /> FAQs
+            </a>
             <a class="mega__promo" href={waLink("Hi WebyGrowth, I'd like a free website audit.")} target="_blank" rel="noopener">
               <span class="mega__promo-tag">Free</span>
               <strong>Website audit</strong>
@@ -86,6 +89,7 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
           </div>
         </details>
         <a href="/blog/" aria-current={isActive('/blog/') ? 'page' : undefined}>Insights <Icon name="arrow" size={18} /></a>
+        <a href="/faq/" aria-current={isActive('/faq/') ? 'page' : undefined}>FAQs <Icon name="arrow" size={18} /></a>
         <a href="/about/" aria-current={isActive('/about/') ? 'page' : undefined}>About <Icon name="arrow" size={18} /></a>
         <a href="/contact/" aria-current={isActive('/contact/') ? 'page' : undefined}>Contact <Icon name="arrow" size={18} /></a>
       </nav>

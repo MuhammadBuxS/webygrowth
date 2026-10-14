@@ -114,3 +114,35 @@ Pick based on what Search Console shows people actually searching for.
 - Google Business Profile: complete it, post updates, collect reviews.
 - Get listed on trade directories and local business sites.
 - Ask every happy client for a review and a link.
+
+---
+
+## 6. Answer Engine Optimisation (AEO) — how this site is set up for AI search
+
+AI assistants (ChatGPT, Claude, Perplexity, Google AI Overviews) answer by quoting short,
+self-contained passages. The site is built to make that easy:
+
+- **Answer-first writing.** Every FAQ answer opens with a complete 25–45 word response that
+  still makes sense quoted out of context, then adds detail. Keep this style for new content.
+- **`/faq/`** — one page holding every answer on the site, with FAQ structured data.
+- **Quick answer box** on each service page — a quotable summary of what the service is.
+- **`/llms.txt`** — short site summary for AI crawlers.
+- **`/llms-full.txt`** — the full knowledge base: entity facts, services, FAQs, contact details.
+- **`robots.txt`** explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot and others).
+- **Organisation schema** lists services, UK coverage, contact methods and areas of expertise.
+
+### Rules when adding content
+1. Answer the question in the first sentence. Never bury it after a preamble.
+2. Name the entity: write "WebyGrowth" and "UK", not "we" alone, in anything meant to be quoted.
+3. Use real question phrasing as headings.
+4. State facts that can be checked (timelines, what's included, how quoting works).
+5. Never claim "best", "number one" or "award-winning" without evidence — AI systems and Google
+   discount unverifiable superlatives, and fabricated credentials are a spam-policy risk.
+
+### Still worth adding (needs your input)
+- **A location.** "Where is WebyGrowth based?" currently has no answer. A town or city, even
+  "based in X, serving the whole UK", is a strong entity signal for both Google and AI engines.
+- **Social profiles** (LinkedIn, Facebook, Instagram) to add as `sameAs` in the schema — these
+  are how search engines confirm a business is real.
+- **A Google Business Profile**, which feeds both local search and AI answers.
+- **Named author/founder** on the About page — a real person adds experience signals.
