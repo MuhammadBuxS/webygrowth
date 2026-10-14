@@ -45,6 +45,7 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
           </div>
         </div>
       </div>
+      <a href="/blog/" aria-current={isActive('/blog/') ? 'page' : undefined}>Insights</a>
       <a href="/about/" aria-current={isActive('/about/') ? 'page' : undefined}>About</a>
       <a href="/contact/" aria-current={isActive('/contact/') ? 'page' : undefined}>Contact</a>
     </nav>
@@ -84,6 +85,7 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
             ))}
           </div>
         </details>
+        <a href="/blog/" aria-current={isActive('/blog/') ? 'page' : undefined}>Insights <Icon name="arrow" size={18} /></a>
         <a href="/about/" aria-current={isActive('/about/') ? 'page' : undefined}>About <Icon name="arrow" size={18} /></a>
         <a href="/contact/" aria-current={isActive('/contact/') ? 'page' : undefined}>Contact <Icon name="arrow" size={18} /></a>
       </nav>

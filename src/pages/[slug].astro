@@ -7,6 +7,8 @@ import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import { PAGES, SERVICES, INDUSTRIES, type ServicePage } from '../data/pages';
 import { SITE, waLink } from '../data/site';
+import BlogCard from '../components/BlogCard.astro';
+import { getPosts } from '../lib/posts';
 
 export function getStaticPaths() {
   return PAGES.map((page) => ({ params: { slug: page.slug }, props: { page } }));
@@ -16,6 +18,11 @@ const { page } = Astro.props as { page: ServicePage };
 const url = `${SITE.url}/${page.slug}/`;
 const related = (page.kind === 'service' ? SERVICES : INDUSTRIES).filter((p) => p.slug !== page.slug).slice(0, 3);
 const waMsg = `Hi WebyGrowth, I'm interested in ${page.label}. Can we discuss my project?`;
+const allPosts = await getPosts();
+const guides = [
+  ...allPosts.filter((p) => p.data.relatedService === page.slug),
+  ...allPosts.filter((p) => p.data.relatedService !== page.slug),
+].slice(0, 3);
 const benefitIcons = ['target', 'bolt', 'layers', 'search', 'chart', 'shield'];
 
 const schema = [
@@ -118,6 +125,23 @@ const crumbs = [
   <Testimonials />
   <Faq faqs={page.faqs} title={`${page.kind === 'service' ? page.label : 'Your website'} questions.`} />
 
+  {guides.length > 0 && (
+    <section class="section guides" aria-labelledby="guides-title">
+      <div class="container">
+        <div class="sec-head split">
+          <div>
+            <p class="eyebrow reveal">Free guides</p>
+            <h2 id="guides-title" class="display-md reveal">Learn before you buy</h2>
+          </div>
+          <a class="btn btn-ghost reveal" href="/blog/">All insights <Icon name="arrow" size={15} /></a>
+        </div>
+        <div class="guides__grid">
+          {guides.map((p, i) => <BlogCard post={p} class="reveal" style={`--d:${i * 0.06}s`} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="section related" aria-labelledby="rel-title">
     <div class="container">
       <div class="sec-head">
@@ -175,6 +199,11 @@ const crumbs = [
   .inc__list li :global(svg) { margin-left: auto; color: var(--lime); flex-shrink: 0; }
   .inc__n { font-family: var(--font-body); font-size: .8rem; color: #6f7489; font-weight: 600; }
   @media (max-width: 900px) { .inc__grid { grid-template-columns: 1fr; } .inc__head { position: static; } }
+
+  .guides { background: #fff; }
+  .guides__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 1000px) { .guides__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .guides__grid { grid-template-columns: 1fr; } }
 
   .related { background: var(--paper); }
   .rel__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }

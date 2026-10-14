@@ -7,6 +7,8 @@ import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import { SERVICES, INDUSTRIES } from '../data/pages';
 import { HOME_FAQS, SITE, waLink } from '../data/site';
+import BlogCard from '../components/BlogCard.astro';
+import { getPosts } from '../lib/posts';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -16,6 +18,7 @@ const faqSchema = {
 
 const bySlug = (s: string) => SERVICES.find((p) => p.slug === s)!;
 const marquee = ['WordPress', 'Shopify', 'WooCommerce', 'Technical SEO', 'Local SEO', 'Core Web Vitals', 'Store Migrations', 'Conversion Design', 'Mobile First', 'Schema Markup'];
+const latestPosts = (await getPosts()).slice(0, 3);
 const otherIndustries = ['Plumbers', 'Electricians', 'Builders', 'Beauty Salons', 'Contractors', 'Home Improvement', 'Ecommerce Brands', 'Local Services'];
 ---
 <BaseLayout
@@ -232,6 +235,24 @@ const otherIndustries = ['Plumbers', 'Electricians', 'Builders', 'Beauty Salons'
 
   <Process />
   <Testimonials />
+
+  {latestPosts.length > 0 && (
+    <section class="section insights" aria-labelledby="ins-title">
+      <div class="container">
+        <div class="sec-head split">
+          <div>
+            <p class="eyebrow reveal">Insights</p>
+            <h2 id="ins-title" class="display-lg reveal" style="--d:.05s">Free advice that <span class="serif-i">grows</span> businesses.</h2>
+          </div>
+          <a class="btn btn-ghost reveal" style="--d:.1s" href="/blog/">Read all guides <Icon name="arrow" size={15} /></a>
+        </div>
+        <div class="ins__grid">
+          {latestPosts.map((p, i) => <BlogCard post={p} class="reveal" style={`--d:${i * 0.06}s`} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
   <Faq faqs={HOME_FAQS} />
 </BaseLayout>
 
@@ -353,6 +374,12 @@ const otherIndustries = ['Plumbers', 'Electricians', 'Builders', 'Beauty Salons'
   .x { background: rgba(255, 95, 87, .14); color: #ff7b73; }
   .v { background: var(--lime); color: var(--ink); }
   @media (max-width: 760px) { .compare__grid { grid-template-columns: 1fr; } }
+
+  /* INSIGHTS */
+  .insights { background: #fff; }
+  .ins__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 1000px) { .ins__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .ins__grid { grid-template-columns: 1fr; } }
 
   /* INDUSTRIES */
   .industries { background: var(--paper); }

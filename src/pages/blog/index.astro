@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getPosts } from '../../lib/posts';
+import { SITE, waLink } from '../../data/site';
+
+const posts = await getPosts();
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.id !== featured?.id);
+const categories = [...new Set(posts.map((p) => p.data.category))];
+const catSlug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE.url}/blog/#blog`,
+    name: 'WebyGrowth Insights',
+    description: 'Practical web design, ecommerce and SEO advice for UK small businesses.',
+    url: `${SITE.url}/blog/`,
+    publisher: { '@id': `${SITE.url}/#organization` },
+    blogPost: posts.slice(0, 10).map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.data.title,
+      url: `${SITE.url}/blog/${p.id}/`,
+      datePublished: p.data.pubDate.toISOString(),
+    })),
+  },
+];
+---
+<BaseLayout
+  title="Web Design & SEO Insights for UK Small Businesses | WebyGrowth"
+  description="Practical guides on web design, WordPress, Shopify, WooCommerce and SEO — written to help UK small businesses win more enquiries online."
+  crumbs={[{ name: 'Insights', path: '/blog/' }]}
+  schema={schema}
+>
+  <section class="bhero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:640px;height:640px;background:#2563eb;left:50%;top:-340px;transform:translateX(-50%);opacity:.4"></div>
+    <div class="container bhero__inner">
+      <p class="eyebrow rise">Insights</p>
+      <h1 class="display-xl rise" style="--d:.05s">Advice that wins<br />you <span class="grad-text">more work.</span></h1>
+      <p class="lead rise" style="--d:.1s">Straight-talking guides on websites, ecommerce and SEO for UK small businesses — no jargon, no filler, nothing you can't act on this week.</p>
+      <div class="bhero__ctas rise" style="--d:.14s">
+        <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I read your blog and I'd like a free website audit.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Get a free audit</a>
+        <a class="btn btn-ghost" href="/services/">View services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section posts">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="lead">New guides are on the way — <a href="/contact/">get in touch</a> in the meantime.</p>
+      ) : (
+        <>
+          <nav class="cats reveal" aria-label="Categories">
+            <span class="cats__label">Browse</span>
+            <a href="/blog/" class="cats__item is-active">All</a>
+            {categories.map((c) => <a href={`/blog/category/${catSlug(c)}/`} class="cats__item">{c}</a>)}
+          </nav>
+
+          {featured && <BlogCard post={featured} featured class="reveal feat" />}
+
+          <div class="posts__grid">
+            {rest.map((p, i) => <BlogCard post={p} class="reveal" style={`--d:${(i % 3) * 0.06}s`} />)}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bhero { position: relative; overflow: hidden; padding-top: clamp(140px, 17vw, 200px); padding-bottom: clamp(60px, 8vw, 100px); }
+  .bhero__inner { position: relative; display: grid; gap: 26px; justify-items: start; }
+  .bhero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .posts { background: var(--paper); padding-top: clamp(50px, 6vw, 80px); }
+  .cats { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .cats__label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 6px; }
+  .cats__item { padding: 9px 18px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: .9rem; font-weight: 500; transition: all .3s var(--ease); }
+  .cats__item:hover { border-color: var(--blue); color: var(--blue); }
+  .cats__item.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .feat { margin-bottom: 18px; }
+  .posts__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 1000px) { .posts__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .posts__grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,177 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import Faq from '../../components/Faq.astro';
+import { getPosts, formatDate, readingTime, relatedPosts, type Post } from '../../lib/posts';
+import { SITE, waLink } from '../../data/site';
+import { PAGES } from '../../data/pages';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
+}
+
+const { post, posts } = Astro.props as { post: Post; posts: Post[] };
+const { Content, headings } = await render(post);
+const d = post.data;
+const url = `${SITE.url}/blog/${post.id}/`;
+const service = PAGES.find((p) => p.slug === d.relatedService);
+const related = relatedPosts(posts, post);
+const toc = headings.filter((h) => h.depth === 2);
+const mins = readingTime(post.body ?? '');
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${url}#article`,
+    headline: d.title,
+    description: d.description,
+    url,
+    datePublished: d.pubDate.toISOString(),
+    dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@id': `${SITE.url}/#organization` },
+    mainEntityOfPage: url,
+    image: `${SITE.url}/og.png`,
+    inLanguage: 'en-GB',
+    keywords: [d.keyword, ...d.tags].join(', '),
+timeRequired: `PT${mins}M`,
+    articleSection: d.category,
+    isPartOf: { '@id': `${SITE.url}/blog/#blog` },
+  },
+  ...(d.faqs.length
+    ? [{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      }]
+    : []),
+];
+---
+<BaseLayout
+  title={`${d.title} | WebyGrowth`}
+  description={d.description}
+  crumbs={[{ name: 'Insights', path: '/blog/' }, { name: d.title, path: `/blog/${post.id}/` }]}
+  schema={schema}
+>
+  <article>
+    <header class="phead dark noise">
+      <div class="grid-bg"></div>
+      <div class="glow" style="width:560px;height:560px;background:#2563eb;left:50%;top:-320px;transform:translateX(-50%);opacity:.38"></div>
+      <div class="container phead__inner">
+        <nav class="crumbs rise" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/blog/">Insights</a><span>/</span><span aria-current="page">{d.category}</span>
+        </nav>
+        <h1 class="display-lg rise" style="--d:.05s">{d.title}</h1>
+        <p class="lead rise" style="--d:.1s">{d.description}</p>
+        <div class="pmeta rise" style="--d:.14s">
+          <span class="pmeta__cat">{d.category}</span>
+          <time datetime={d.pubDate.toISOString()}>{formatDate(d.pubDate)}</time>
+          <span>{mins} min read</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="pbody">
+      <div class="container pbody__grid">
+        <aside class="pside">
+          {toc.length > 1 && (
+            <nav class="toc" aria-label="On this page">
+              <p class="toc__t">On this page</p>
+              <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+            </nav>
+          )}
+          <div class="sidecta">
+            <p class="sidecta__t">Want this done for you?</p>
+            <p class="sidecta__p">Get a free, no-obligation audit of your current website.</p>
+            <a class="btn btn-wa btn-sm" href={waLink(`Hi WebyGrowth, I read "${d.title}" and I'd like a free website audit.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={17} /> WhatsApp us</a>
+            <a class="sidecta__link" href="/contact/">Or send an enquiry <Icon name="arrow" size={14} /></a>
+          </div>
+        </aside>
+
+        <div class="prose">
+          <Content />
+
+          {service && (
+            <div class="inline-cta not-prose">
+              <div>
+                <p class="inline-cta__k">Related service</p>
+                <h3>{service.label}</h3>
+                <p class="muted">{service.short}</p>
+              </div>
+              <a class="btn btn-primary btn-sm" href={`/${service.slug}/`}>See the service <Icon name="arrow" size={15} /></a>
+            </div>
+          )}
+
+          <div class="tags not-prose">
+            {d.tags.map((t) => <span class="tagp">{t}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {d.faqs.length > 0 && <Faq faqs={d.faqs} title="Frequently asked" />}
+
+  {related.length > 0 && (
+    <section class="section related-posts">
+      <div class="container">
+        <div class="sec-head split">
+          <div>
+            <p class="eyebrow reveal">Keep reading</p>
+            <h2 class="display-md reveal">More guides for growing businesses</h2>
+          </div>
+          <a class="btn btn-ghost reveal" href="/blog/">All insights <Icon name="arrow" size={15} /></a>
+        </div>
+        <div class="rp__grid">
+          {related.map((p, i) => <BlogCard post={p} class="reveal" style={`--d:${i * 0.06}s`} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .phead { position: relative; overflow: hidden; padding-top: clamp(130px, 15vw, 180px); padding-bottom: clamp(50px, 6vw, 80px); }
+  .phead__inner { position: relative; display: grid; gap: 22px; max-width: 880px; }
+  .phead h1 { font-size: clamp(2rem, 4.4vw, 3.6rem); }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #8a8fa3; }
+  .crumbs a:hover { color: #fff; }
+  .crumbs [aria-current] { color: #d7dbea; }
+  .pmeta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; color: #9aa0b4; font-size: .9rem; }
+  .pmeta__cat { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); background: rgba(124,196,255,.12); padding: 5px 11px; border-radius: 999px; }
+
+  .pbody { background: #fff; padding-block: clamp(48px, 6vw, 80px); }
+  .pbody__grid { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .pside { position: sticky; top: 120px; display: grid; gap: 20px; }
+  .toc { border-left: 2px solid var(--line); padding-left: 18px; }
+  .toc__t { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: toc; }
+  .toc a { font-size: .92rem; color: var(--muted); line-height: 1.35; display: block; transition: color .2s; }
+  .toc a:hover { color: var(--blue); }
+  .sidecta { padding: 22px; border-radius: 18px; background: linear-gradient(160deg, #0c0e16, #16203a); color: #fff; display: grid; gap: 10px; justify-items: start; }
+  .sidecta__t { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; letter-spacing: -.02em; }
+  .sidecta__p { font-size: .9rem; color: #a8adbf; }
+  .sidecta .btn { margin-top: 4px; }
+  .sidecta__link { display: inline-flex; gap: 6px; align-items: center; font-size: .88rem; color: var(--sky); }
+  @media (max-width: 980px) {
+    .pbody__grid { grid-template-columns: 1fr; }
+    .pside { position: static; order: 2; }
+    .toc { display: none; }
+  }
+
+  .inline-cta { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); }
+  .inline-cta__k { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+  .inline-cta h3 { font-size: 1.4rem; margin-bottom: 6px; }
+  .inline-cta p { font-size: .95rem; max-width: 46ch; }
+  .tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tagp { font-size: .82rem; padding: 6px 14px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); color: var(--muted); }
+
+  .related-posts { background: var(--paper); }
+  .rp__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 1000px) { .rp__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .rp__grid { grid-template-columns: 1fr; } }
+</style>

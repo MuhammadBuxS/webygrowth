@@ -1,9 +1,11 @@
 import type { APIRoute } from 'astro';
 import { SITE, HOME_FAQS, PROCESS } from '../data/site';
 import { SERVICES, INDUSTRIES } from '../data/pages';
+import { getPosts } from '../lib/posts';
 
 // llms.txt — a plain-text summary of the site for AI assistants (https://llmstxt.org).
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const posts = await getPosts();
   const link = (slug: string) => `${SITE.url}/${slug}/`;
   const body = `# ${SITE.name}
 
@@ -26,6 +28,10 @@ ${INDUSTRIES.map((s) => `- [${s.label}](${link(s.slug)}): ${s.short}`).join('\n'
 ## Process
 
 ${PROCESS.map((p, i) => `${i + 1}. ${p.title}: ${p.text}`).join('\n')}
+
+## Guides
+
+${posts.map((p) => `- [${p.data.title}](${SITE.url}/blog/${p.id}/): ${p.data.description}`).join(String.fromCharCode(10))}
 
 ## Company
 

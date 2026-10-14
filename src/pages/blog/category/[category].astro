@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getPosts, type Post } from '../../../lib/posts';
+
+const catSlug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const categories = [...new Set(posts.map((p) => p.data.category))];
+  return categories.map((category) => ({
+    params: { category: category.toLowerCase().replace(/\s+/g, '-') },
+    props: { category, posts: posts.filter((p) => p.data.category === category), all: posts },
+  }));
+}
+
+const { category, posts, all } = Astro.props as { category: string; posts: Post[]; all: Post[] };
+const categories = [...new Set(all.map((p) => p.data.category))];
+---
+<BaseLayout
+  title={`${category} Guides for UK Small Businesses | WebyGrowth`}
+  description={`${category} articles from WebyGrowth — practical guidance on websites, ecommerce and SEO for UK small businesses.`}
+  crumbs={[{ name: 'Insights', path: '/blog/' }, { name: category, path: `/blog/category/${catSlug(category)}/` }]}
+>
+  <section class="chero dark noise">
+    <div class="grid-bg"></div>
+    <div class="glow" style="width:560px;height:560px;background:#2563eb;left:50%;top:-320px;transform:translateX(-50%);opacity:.38"></div>
+    <div class="container chero__inner">
+      <nav class="crumbs rise" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>/</span><a href="/blog/">Insights</a><span>/</span><span aria-current="page">{category}</span>
+      </nav>
+      <h1 class="display-lg rise" style="--d:.05s">{category}</h1>
+      <p class="lead rise" style="--d:.1s">{posts.length} guide{posts.length === 1 ? '' : 's'} on {category.toLowerCase()} for UK small businesses.</p>
+    </div>
+  </section>
+
+  <section class="section posts">
+    <div class="container">
+      <nav class="cats reveal" aria-label="Categories">
+        <span class="cats__label">Browse</span>
+        <a href="/blog/" class="cats__item">All</a>
+        {categories.map((c) => (
+          <a href={`/blog/category/${catSlug(c)}/`} class:list={['cats__item', { 'is-active': c === category }]}>{c}</a>
+        ))}
+      </nav>
+      <div class="posts__grid">
+        {posts.map((p, i) => <BlogCard post={p} class="reveal" style={`--d:${(i % 3) * 0.06}s`} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .chero { position: relative; overflow: hidden; padding-top: clamp(130px, 15vw, 180px); padding-bottom: clamp(50px, 6vw, 80px); }
+  .chero__inner { position: relative; display: grid; gap: 20px; }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #8a8fa3; }
+  .crumbs a:hover { color: #fff; }
+  .crumbs [aria-current] { color: #d7dbea; }
+  .posts { background: var(--paper); padding-top: clamp(50px, 6vw, 80px); }
+  .cats { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .cats__label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 6px; }
+  .cats__item { padding: 9px 18px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: .9rem; font-weight: 500; transition: all .3s var(--ease); }
+  .cats__item:hover { border-color: var(--blue); color: var(--blue); }
+  .cats__item.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .posts__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 1000px) { .posts__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) { .posts__grid { grid-template-columns: 1fr; } }
+</style>

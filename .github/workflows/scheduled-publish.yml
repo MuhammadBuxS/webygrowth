@@ -1,0 +1,30 @@
+# Publishes scheduled blog posts.
+#
+# Posts with a future `pubDate` are excluded from the build until that date passes,
+# so the site needs a rebuild each morning for them to appear. This workflow pings a
+# Cloudflare Pages Deploy Hook daily.
+#
+# Setup (once):
+#   1. Cloudflare Pages -> webygrowth -> Settings -> Builds & deployments -> Deploy hooks
+#      -> Add deploy hook (name: "daily-publish", branch: main) -> copy the URL.
+#   2. GitHub repo -> Settings -> Secrets and variables -> Actions -> New repository secret
+#      -> Name: CLOUDFLARE_DEPLOY_HOOK  Value: the URL you copied.
+name: Scheduled publish
+
+on:
+  schedule:
+    - cron: '10 7 * * *' # 07:10 UTC daily
+  workflow_dispatch: # also runnable by hand from the Actions tab
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}" ]; then
+            echo "CLOUDFLARE_DEPLOY_HOOK secret is not set — skipping."
+            exit 0
+          fi
+          curl -sS -f -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
+          echo "Build triggered."
