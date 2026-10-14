@@ -94,7 +94,7 @@ Checkout is where small friction costs real money.
 - Use address lookup if your budget allows, to cut typing errors.
 - Show **delivery costs and times before checkout**, ideally on the product page and in the basket.
 - Offer familiar payment options, including cards and digital wallets.
-- Display returns information and contact details at checkout. A visible WhatsApp or email link reassures nervous first-time buyers.
+- Display returns information and contact details at checkout. A visible email or email link reassures nervous first-time buyers.
 - Test the whole flow on a phone, with a real order, before launch.
 
 ## UK specifics: VAT, shipping and payments
@@ -154,4 +154,4 @@ If you are moving from another platform, read our [ecommerce migration checklist
 
 ## Next steps
 
-If you would like an honest view on whether WooCommerce is right for your store, we offer a free website audit. We will look at your current site or plans and tell you what we would do. [Contact us](/contact/), message us on WhatsApp on +923060834006, or email hello@webygrowth.com.
+If you would like an honest view on whether WooCommerce is right for your store, we offer a free website audit. We will look at your current site or plans and tell you what we would do. [Contact us](/contact/), email us at hello@webygrowth.com.

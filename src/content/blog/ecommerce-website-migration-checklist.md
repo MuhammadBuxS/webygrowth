@@ -170,4 +170,4 @@ For a managed move, see our [store migrations](/store-migrations/) service. If y
 
 ## Next steps
 
-If you are planning a move and want the redirects, data and launch handled properly, ask us for a free website audit. We will review your current store, list the risks and outline a plan. Talk to us through the [contact page](/contact/), on WhatsApp at +923060834006, or by email at hello@webygrowth.com. If you want help with search performance before or after the move, our [SEO services](/seo-services/) cover it.
+If you are planning a move and want the redirects, data and launch handled properly, ask us for a free website audit. We will review your current store, list the risks and outline a plan. Talk to us through the [contact page](/contact/), by email at hello@webygrowth.com. If you want help with search performance before or after the move, our [SEO services](/seo-services/) cover it.

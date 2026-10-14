@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { PROCESS, waLink } from '../data/site';
+import { PROCESS } from '../data/site';
 ---
 <section class="section process" aria-labelledby="process-title">
   <div class="container process__grid">
@@ -8,7 +8,7 @@ import { PROCESS, waLink } from '../data/site';
       <p class="eyebrow reveal">How we work</p>
       <h2 id="process-title" class="display-lg reveal" style="--d:.05s">A clear process from <span class="serif-i">strategy</span> to launch.</h2>
       <p class="lead reveal" style="--d:.1s">No jargon, no guesswork. You always know what is happening, what comes next, and why it matters for your business.</p>
-      <a class="btn btn-wa reveal" style="--d:.15s" href={waLink("Hi WebyGrowth, I'd like to book a free consultation.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Book a free consultation</a>
+      <a class="btn btn-primary reveal" style="--d:.15s" href="/contact/">Book a free consultation <span class="arrow"><Icon name="arrow" size={16} /></span></a>
     </div>
     <ol class="process__steps">
       {PROCESS.map((step, i) => (

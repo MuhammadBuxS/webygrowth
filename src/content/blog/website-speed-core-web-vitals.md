@@ -131,4 +131,4 @@ Speed supports your wider search visibility alongside content and links, which i
 
 ## Next steps
 
-If you are not sure where your site stands, we offer a free website audit that checks your Core Web Vitals, the biggest speed problems and what we would fix first, in plain English. [Contact us here](/contact/) or message us on WhatsApp on +923060834006 and we will take a look.
+If you are not sure where your site stands, we offer a free website audit that checks your Core Web Vitals, the biggest speed problems and what we would fix first, in plain English. [Contact us here](/contact/) or email us at hello@webygrowth.com and we will take a look.

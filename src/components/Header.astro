@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { NAV_SERVICES, NAV_INDUSTRIES, waLink } from '../data/site';
+import { NAV_SERVICES, NAV_INDUSTRIES, mailLink } from '../data/site';
 import { PAGES } from '../data/pages';
 
 const path = Astro.url.pathname;
@@ -39,7 +39,7 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
             <a class="mega__link" href="/faq/" role="menuitem">
               <Icon name="quote" size={16} /> FAQs
             </a>
-            <a class="mega__promo" href={waLink("Hi WebyGrowth, I'd like a free website audit.")} target="_blank" rel="noopener">
+            <a class="mega__promo" href="/contact/">
               <span class="mega__promo-tag">Free</span>
               <strong>Website audit</strong>
               <small>See exactly what's costing you leads.</small>
@@ -54,7 +54,7 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
     </nav>
 
     <div class="hdr__cta">
-      <a class="btn btn-wa btn-sm" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> WhatsApp us</a>
+      <a class="btn btn-primary btn-sm" href="/contact/">Free website audit</a>
       <button class="hdr__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-burger>
         <span></span><span></span>
       </button>
@@ -95,9 +95,9 @@ const servicesActive = [...NAV_SERVICES, ...NAV_INDUSTRIES].some((i) => path.sta
       </nav>
     </div>
     <div class="mob__foot">
-      <p class="mob__hint"><span class="mob__dot"></span> Fastest reply on WhatsApp</p>
-      <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Chat on WhatsApp</a>
-      <a class="btn btn-ghost" href="/contact/">Get a free website audit</a>
+      <p class="mob__hint"><span class="mob__dot"></span> Replies within one working day</p>
+      <a class="btn btn-primary" href="/contact/">Get a free website audit</a>
+      <a class="btn btn-ghost" href={mailLink('Website enquiry')}><Icon name="mail" size={18} /> Email us</a>
     </div>
   </div>
 </header>

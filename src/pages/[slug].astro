@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import { PAGES, SERVICES, INDUSTRIES, type ServicePage } from '../data/pages';
 import { PAGE_FAQS } from '../data/faqs';
-import { SITE, waLink } from '../data/site';
+import { SITE, mailLink } from '../data/site';
 import BlogCard from '../components/BlogCard.astro';
 import { getPosts } from '../lib/posts';
 
@@ -19,7 +19,7 @@ const { page } = Astro.props as { page: ServicePage };
 const url = `${SITE.url}/${page.slug}/`;
 const related = (page.kind === 'service' ? SERVICES : INDUSTRIES).filter((p) => p.slug !== page.slug).slice(0, 3);
 const pageFaqs = [...page.faqs, ...(PAGE_FAQS[page.slug] ?? [])];
-const waMsg = `Hi WebyGrowth, I'm interested in ${page.label}. Can we discuss my project?`;
+const mailSubject = `${page.label} enquiry`;
 const allPosts = await getPosts();
 const guides = [
   ...allPosts.filter((p) => p.data.relatedService === page.slug),
@@ -67,8 +67,8 @@ const crumbs = [
           <p>{page.quickAnswer}</p>
         </div>
         <div class="phero__ctas rise" style="--d:.16s">
-          <a class="btn btn-wa" href={waLink(waMsg)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Get a quote on WhatsApp</a>
-          <a class="btn btn-ghost" href="/contact/">Send an enquiry</a>
+          <a class="btn btn-primary" href="/contact/">Get a free quote <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+          <a class="btn btn-ghost" href={mailLink(mailSubject)}>Email us</a>
         </div>
         <ul class="phero__chips rise" style="--d:.2s">
           <li><Icon name="check" size={14} stroke={2.6} /> Free consultation</li>
@@ -114,7 +114,7 @@ const crumbs = [
         <p class="eyebrow reveal">What's included</p>
         <h2 id="inc-title" class="display-lg reveal" style="--d:.05s">Everything you need to <span class="grad-text">launch &amp; grow.</span></h2>
         <p class="lead reveal" style="--d:.1s">No hidden extras. A complete package tailored to your goals, with support after launch.</p>
-        <a class="btn btn-wa reveal" style="--d:.14s" href={waLink(waMsg)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Get a free quote</a>
+        <a class="btn btn-light reveal" style="--d:.14s" href="/contact/">Get a free quote <span class="arrow"><Icon name="arrow" size={16} /></span></a>
       </div>
       <ul class="inc__list">
         {page.deliverables.map((d, i) => (

@@ -56,7 +56,7 @@ There is no single right answer here. It depends on how many covers you do and h
 |---|---|---|
 | Dedicated platforms (OpenTable, ResDiary and similar) | Busy venues that need table management, reminders and no-show controls | Subscription or per-cover fees; the platform's branding and its own marketplace can compete with your site |
 | Simple booking form on your site | Smaller venues, cafes, family-run restaurants | You manage the diary yourself; double bookings are possible without discipline |
-| Phone and WhatsApp only | Very small places with regular customers | Nobody can book when you are closed or in the middle of service |
+| Phone and email only | Very small places with regular customers | Nobody can book when you are closed or in the middle of service |
 
 Check current pricing and terms directly with each provider, as they change. Whichever route you choose, put the booking button in the header, on the homepage and on the contact page, and make sure it still works on mobile. If you use a simple form, send a confirmation email so guests know the request arrived.
 
@@ -137,4 +137,4 @@ Accessible sites are better for everyone, including diners with visual or motor 
 
 ## Next steps
 
-If you would like to know how your restaurant website measures up, we offer a free website audit covering your menu, booking flow, mobile speed and local search basics. [Get in touch through our contact page](/contact/) or message us on WhatsApp on +923060834006, and we will tell you plainly what we would fix first.
+If you would like to know how your restaurant website measures up, we offer a free website audit covering your menu, booking flow, mobile speed and local search basics. [Get in touch through our contact page](/contact/) or email us at hello@webygrowth.com, and we will tell you plainly what we would fix first.

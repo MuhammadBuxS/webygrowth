@@ -49,7 +49,7 @@ Some practical points that matter more than people expect:
 - Put the form near the top of the page on mobile, not buried under three screens of text.
 - Use large tap-friendly fields and the right keyboard type for phone and postcode.
 - Tell people what happens next, for example "We reply within a working day with a price" (only say what you can really deliver).
-- Offer a WhatsApp or call button beside the form for people who would rather not type.
+- Offer a email or call button beside the form for people who would rather not type.
 
 Whether the quote is genuinely instant or a prompt reply is up to you. A calculator that returns a price works for standardised services like regular domestic cleans. For anything variable, a fast personal reply beats an automated figure that turns out to be wrong.
 
@@ -127,4 +127,4 @@ Whatever you choose, make sure bookings and enquiries reach you instantly, by em
 
 ## Next steps
 
-If your site gets visitors but few enquiries, the cause is usually one or two of the points above rather than a total rebuild. We can review your current site and tell you honestly what is holding it back. Take a look at our [cleaning website design](/cleaning-website-design/) service, then [request a free website audit](/contact/) or message us on WhatsApp on +923060834006. Most projects take two to four weeks from start to launch.
+If your site gets visitors but few enquiries, the cause is usually one or two of the points above rather than a total rebuild. We can review your current site and tell you honestly what is holding it back. Take a look at our [cleaning website design](/cleaning-website-design/) service, then [request a free website audit](/contact/) or email us at hello@webygrowth.com. Most projects take two to four weeks from start to launch.

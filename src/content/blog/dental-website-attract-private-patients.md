@@ -93,7 +93,7 @@ Interest fades fast if the next step is awkward. Aim to offer more than one rout
 
 - **Online booking or request form** for consultations, kept short: name, phone, email, treatment of interest, preferred time.
 - **Click-to-call** on mobile, visible without scrolling.
-- **WhatsApp or messaging**, if your team can respond promptly and you have thought through data protection.
+- **email or messaging**, if your team can respond promptly and you have thought through data protection.
 - **Clear confirmation** after submission: what happens next, and when they will hear from you.
 
 Place the main call to action in the header, on every treatment page and at the end of long pages. Avoid pop-ups that cover the page on mobile. If you use a booking system, check how it behaves on a phone before you launch.
@@ -134,4 +134,4 @@ Many patients search on a phone, often in a hurry. A slow site or one that is aw
 
 ## Next steps
 
-If you would like to know how your practice website compares, we offer a free website audit. We will review your treatment pages, booking flow, mobile speed and local search presence, and tell you plainly what to fix first. [Get in touch](/contact/) or message us on WhatsApp on +923060834006, or email hello@webygrowth.com.
+If you would like to know how your practice website compares, we offer a free website audit. We will review your treatment pages, booking flow, mobile speed and local search presence, and tell you plainly what to fix first. [Get in touch](/contact/) or email us at hello@webygrowth.com.

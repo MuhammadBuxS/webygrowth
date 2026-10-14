@@ -15,7 +15,7 @@ faqs:
   - q: "How much does a custom roofing website cost compared with a builder?"
     a: "A builder charges a low monthly fee but you do your own build and upkeep. A custom site costs more upfront and you own it outright. Over several years the gap is often smaller than people expect, once you count your own time."
   - q: "What should a roofing website include to win more jobs?"
-    a: "A quick quote or callback form, a prominent phone and WhatsApp button, local area pages, real before and after photos, clear proof of insurance and accreditations, and an emergency or storm damage section."
+    a: "A quick quote or callback form, a prominent phone and email button, local area pages, real before and after photos, clear proof of insurance and accreditations, and an emergency or storm damage section."
 ---
 
 For a new or very small roofing business, a website builder like Wix or Squarespace is a perfectly reasonable starting point. For a roofer who wants steady local enquiries from search, a custom build usually wins, because the things that bring in roofing jobs, such as area pages, speed, quote forms and photo galleries, are easier to do properly when nothing is holding you back. The honest answer depends on where your business is now and where you want it to be in two years.
@@ -29,7 +29,7 @@ That means the site needs to:
 - Appear for searches in the towns you cover
 - Load quickly on a phone
 - Show real work and proof you are legitimate
-- Offer a form, phone button and WhatsApp option within one tap
+- Offer a form, phone button and email option within one tap
 - Handle urgent enquiries differently from planned ones
 
 Any platform can do some of this. The question is how easily, and what happens when you want more.
@@ -79,7 +79,7 @@ These three features separate a roofing site that generates work from one that m
 
 ### Quote forms
 
-A good roofing form is short: name, phone, postcode, type of problem, and an optional photo upload. Photos help you judge whether it is a repair or a larger job before you drive out. Many builders offer basic forms but struggle with photo upload, spam filtering, instant notifications or WhatsApp links without paid add-ons.
+A good roofing form is short: name, phone, postcode, type of problem, and an optional photo upload. Photos help you judge whether it is a repair or a larger job before you drive out. Many builders offer basic forms but struggle with photo upload, spam filtering, instant notifications or email links without paid add-ons.
 
 ### Before and after galleries
 
@@ -87,7 +87,7 @@ Real photos of your own work are your strongest credibility signal. Group them b
 
 ### Storm damage and emergency sections
 
-After high winds or heavy rain, searches change. People want a fast response, not a brochure. A dedicated emergency section or page should include a prominent phone and WhatsApp button, what you do in an emergency (temporary repairs, tarping, making safe), your response area and, if true, your availability. Keep it factual and do not promise response times you cannot meet. You can also keep a separate page ready for insurance-related enquiries and explain how you document damage.
+After high winds or heavy rain, searches change. People want a fast response, not a brochure. A dedicated emergency section or page should include a prominent phone and email button, what you do in an emergency (temporary repairs, tarping, making safe), your response area and, if true, your availability. Keep it factual and do not promise response times you cannot meet. You can also keep a separate page ready for insurance-related enquiries and explain how you document damage.
 
 ## When a builder is genuinely fine
 
@@ -99,7 +99,7 @@ We would rather tell you this than have you overspend. A builder is a sensible c
 - You do not plan to invest in search visibility yet
 - You are happy to maintain it yourself
 
-In that case, spend an afternoon making it clear: your services, your area, your phone number and WhatsApp, some real photos and your insurance details. That will beat a poorly managed expensive site.
+In that case, spend an afternoon making it clear: your services, your area, your phone number and email, some real photos and your insurance details. That will beat a poorly managed expensive site.
 
 ## When a builder holds you back
 
@@ -125,4 +125,4 @@ The same logic applies in other trades. Our guide to [building a high-converting
 
 ## Next steps
 
-If you already have a builder site, we can tell you honestly whether it is doing the job or whether a rebuild would pay for itself. See our [roofing website design](/roofing-website-design/) service, then [ask for a free website audit](/contact/) or message us on WhatsApp on +923060834006. Typical projects take two to four weeks.
+If you already have a builder site, we can tell you honestly whether it is doing the job or whether a rebuild would pay for itself. See our [roofing website design](/roofing-website-design/) service, then [ask for a free website audit](/contact/) or email us at hello@webygrowth.com. Typical projects take two to four weeks.

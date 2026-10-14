@@ -1,21 +1,19 @@
 export const SITE = {
   name: 'WebyGrowth',
   url: 'https://webygrowth.com',
-  email: 'hello@webygrowth.com',
-  whatsapp: '923060834006',
-  whatsappDisplay: '+92 306 0834006',
+ email: 'hello@webygrowth.com',
   tagline: 'Web design for small businesses that want more leads, sales & visibility.',
   description:
     'WebyGrowth is a UK web design agency building fast, SEO-ready WordPress, WooCommerce and Shopify websites that turn visitors into enquiries.',
-  area: 'Serving UK businesses remotely',
+  area: 'Working with small businesses across the UK',
   // Contact form submissions are delivered by FormSubmit (formsubmit.co).
   // Override with PUBLIC_FORM_ENDPOINT, e.g. the random alias FormSubmit gives you after activation.
   formEndpoint: (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || 'https://formsubmit.co/ajax/mbux4001@gmail.com',
 };
 
-/** WhatsApp click-to-chat link with an optional pre-filled message. */
-export const waLink = (message = "Hi WebyGrowth, I'd like to discuss a website for my business.") =>
-  `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+/** Pre-filled mailto link for enquiry buttons. */
+export const mailLink = (subject = 'Website enquiry') =>
+  `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
 
 export type NavItem = { label: string; href: string; desc?: string };
 
@@ -81,7 +79,7 @@ export const HOME_FAQS = [
   },
   {
     q: 'Do you work with businesses across the UK?',
-    a: 'Yes. We work remotely with UK small businesses in trades, healthcare, hospitality, ecommerce and local services — wherever you are based.',
+    a: 'Yes. We work with UK small businesses in trades, healthcare, hospitality, ecommerce and local services, wherever you are based in the UK.',
   },
   {
     q: 'Can you redesign my existing website?',

@@ -256,7 +256,7 @@ export const PAGES: ServicePage[] = [
       { title: 'Emergency repairs', text: 'Urgent-call sections for storm damage and leaks.' },
       { title: 'Mobile-first', text: 'Built for homeowners searching on their phones.' },
     ],
-    deliverables: ['Service pages per roofing type', 'Before & after gallery', 'Quote request form', 'Google reviews integration', 'Local SEO area pages', 'Click-to-call & WhatsApp', 'Accreditation badges', 'Google Business Profile setup'],
+    deliverables: ['Service pages per roofing type', 'Before & after gallery', 'Quote request form', 'Google reviews integration', 'Local SEO area pages', 'Click-to-call & enquiry forms', 'Accreditation badges', 'Google Business Profile setup'],
     faqs: [
       { q: 'Can you create pages for each area I cover?', a: 'Yes. Location pages help you rank in each town or city you serve.' },
       { q: 'Can I add new project photos myself?', a: 'Yes. Galleries are easy to update from your phone or computer.' },

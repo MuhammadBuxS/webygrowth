@@ -68,7 +68,7 @@ Posts are a light-touch way to show activity: a recent job, a seasonal reminder,
 Reviews feed both ranking and conversion. People choose between three listings largely on stars, volume and what the reviews say. The aim is a steady trickle of genuine reviews, not a one-off burst.
 
 - **Ask at the right moment.** Ask when the job is finished and the customer is pleased, ideally in person, then follow up by text.
-- **Make it one tap.** Use your profile's direct review link and send it by WhatsApp or SMS. Every extra step loses reviews.
+- **Make it one tap.** Use your profile's direct review link and send it by email or SMS. Every extra step loses reviews.
 - **Keep the message short and personal.** "Thanks for having us today, [name]. If you were happy with the work, a quick Google review would really help a small local business. Here's the link."
 - **Ask everyone.** Do not filter for only the customers you think will be positive. Google's guidelines are against selective review gating.
 - **Never pay or reward for reviews.** Incentivised reviews breach Google's policies and can get reviews or your profile removed.
@@ -112,7 +112,7 @@ Citations help most as a foundation. They will not outrank a competitor with far
 Once the profile is sorted, make sure the site does its part:
 
 - A clear page title and heading on each service page that states the service and area, written naturally.
-- Your phone number and a WhatsApp or enquiry button visible on every page, especially on mobile.
+- Your phone number and a email or enquiry button visible on every page, especially on mobile.
 - Your address or service area, opening hours and accreditations in the footer.
 - Embedded Google Map and your reviews, either quoted with permission or displayed through a reputable widget.
 - Real project galleries with short descriptions of what was done.
@@ -150,4 +150,4 @@ If you would like help with the technical and content side, our [SEO services](/
 
 ## Next steps
 
-If you are not sure where your profile or website is letting you down, we offer a free website audit. We will look at your Google Business Profile, service pages and local signals and tell you plainly what to fix first. [Get in touch](/contact/) or message us on WhatsApp on +923060834006, or email hello@webygrowth.com.
+If you are not sure where your profile or website is letting you down, we offer a free website audit. We will look at your Google Business Profile, service pages and local signals and tell you plainly what to fix first. [Get in touch](/contact/) or email us at hello@webygrowth.com.

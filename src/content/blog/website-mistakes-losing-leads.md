@@ -54,7 +54,7 @@ Work through the list with your own site open. Be honest: if you have to hunt fo
 
 **Check:** On your phone, tap your number. Does it start a call?
 
-**Fix:** Make the number a proper phone link so it dials with one tap, and keep it visible in the header on mobile. If you rely on WhatsApp, add a tap-to-message link beside it.
+**Fix:** Make the number a proper phone link so it dials with one tap, and keep it visible in the header on mobile. If you rely by email, add a tap-to-message link beside it.
 
 ### 6. Forms that ask for too much
 
@@ -120,7 +120,7 @@ Work through the list with your own site open. Be honest: if you have to hunt fo
 
 **Check:** Can you say how many enquiries last month came from the website, and from which pages or sources?
 
-**Fix:** Install analytics and set up conversion tracking for form submissions, calls and WhatsApp taps. Without it you are guessing, and you cannot tell which of the fixes above is working. Ask everyone who contacts you how they found you, too.
+**Fix:** Install analytics and set up conversion tracking for form submissions, calls and email taps. Without it you are guessing, and you cannot tell which of the fixes above is working. Ask everyone who contacts you how they found you, too.
 
 ## How to run this check properly
 
@@ -146,4 +146,4 @@ Many of these are edits you can make yourself in an afternoon. Others, such as r
 
 ## Next steps
 
-Not sure which of these apply to your site? We offer a free website audit where we check your pages, forms, speed and visibility against this list and tell you plainly what is worth fixing first. [Contact us](/contact/) or message us on WhatsApp on +923060834006, or email hello@webygrowth.com, and we will take a look.
+Not sure which of these apply to your site? We offer a free website audit where we check your pages, forms, speed and visibility against this list and tell you plainly what is worth fixing first. [Contact us](/contact/) or email us at hello@webygrowth.com, and we will take a look.

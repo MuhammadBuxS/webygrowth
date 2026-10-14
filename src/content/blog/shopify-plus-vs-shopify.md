@@ -128,4 +128,4 @@ In that case, take the Plus budget and invest it in what moves revenue: clearer 
 
 ## Next steps
 
-If you are unsure whether your store needs Plus, we will give you a straight answer. We offer a free website audit that reviews your store, your limits and your growth plans, and tells you whether upgrading makes sense or whether the money is better spent elsewhere. [Contact us](/contact/) or message us on WhatsApp on +923060834006, or email hello@webygrowth.com.
+If you are unsure whether your store needs Plus, we will give you a straight answer. We offer a free website audit that reviews your store, your limits and your growth plans, and tells you whether upgrading makes sense or whether the money is better spent elsewhere. [Contact us](/contact/) or email us at hello@webygrowth.com.

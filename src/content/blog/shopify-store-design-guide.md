@@ -112,4 +112,4 @@ A store that does all twelve things well is mostly about good decisions rather t
 
 ## Next steps
 
-If you would like a straight answer on where your current Shopify store is losing sales, we offer a free website audit. We will review your homepage, product pages and speed, and tell you what we would fix first. [Contact us here](/contact/) or message us on WhatsApp on +923060834006, and we will get back to you.
+If you would like a straight answer on where your current Shopify store is losing sales, we offer a free website audit. We will review your homepage, product pages and speed, and tell you what we would fix first. [Contact us here](/contact/) or email us at hello@webygrowth.com, and we will get back to you.

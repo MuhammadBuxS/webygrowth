@@ -5,7 +5,7 @@ import Icon from '../../components/Icon.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import Faq from '../../components/Faq.astro';
 import { getPosts, formatDate, readingTime, relatedPosts, type Post } from '../../lib/posts';
-import { SITE, waLink } from '../../data/site';
+import { SITE, mailLink } from '../../data/site';
 import { PAGES } from '../../data/pages';
 
 export async function getStaticPaths() {
@@ -87,8 +87,8 @@ timeRequired: `PT${mins}M`,
           <div class="sidecta">
             <p class="sidecta__t">Want this done for you?</p>
             <p class="sidecta__p">Get a free, no-obligation audit of your current website.</p>
-            <a class="btn btn-wa btn-sm" href={waLink(`Hi WebyGrowth, I read "${d.title}" and I'd like a free website audit.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={17} /> WhatsApp us</a>
-            <a class="sidecta__link" href="/contact/">Or send an enquiry <Icon name="arrow" size={14} /></a>
+            <a class="btn btn-primary btn-sm" href="/contact/">Get a free audit</a>
+            <a class="sidecta__link" href={mailLink(`Website enquiry: ${d.title}`)}>Or email us <Icon name="arrow" size={14} /></a>
           </div>
         </aside>
 

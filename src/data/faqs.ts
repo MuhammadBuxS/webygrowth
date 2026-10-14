@@ -28,11 +28,11 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "What support do I get after my WordPress website launches?",
-      "a": "Every WebyGrowth WordPress build includes training and post-launch support, so you can manage your site with confidence and ask for help once it is live. If something is unclear or needs adjusting after launch, you can contact WebyGrowth by WhatsApp or email, and the training covers the day-to-day tasks most small business owners need."
+      "a": "Every WebyGrowth WordPress build includes training and post-launch support, so you can manage your site with confidence and ask for help once it is live. If something is unclear or needs adjusting after launch, you can contact WebyGrowth by email, and the training covers the day-to-day tasks most small business owners need."
     },
     {
       "q": "How do I get started with a new WordPress website for my UK business?",
-      "a": "The fastest way to start is to message WebyGrowth on WhatsApp at +923060834006 or email hello@webygrowth.com to book a free consultation. You can also ask for a free website audit if you already have a site, and after the conversation you will receive a fixed, clear quote with the scope set out."
+ "a": "The fastest way to start is to email WebyGrowth at hello@webygrowth.com to book a free consultation. You can also ask for a free website audit if you already have a site, and after the conversation you will receive a fixed, clear quote with the scope set out."
     }
   ],
   "woocommerce-store-design": [
@@ -54,11 +54,11 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "Who looks after my WooCommerce store after launch?",
-      "a": "WebyGrowth includes training and post-launch support with every WooCommerce build, so you can manage products and day-to-day updates yourself and get help when you need it. You can reach WebyGrowth on WhatsApp or by email if something needs attention after launch, and the training is designed for small business owners rather than developers."
+      "a": "WebyGrowth includes training and post-launch support with every WooCommerce build, so you can manage products and day-to-day updates yourself and get help when you need it. You can reach WebyGrowth by email if something needs attention after launch, and the training is designed for small business owners rather than developers."
     },
     {
       "q": "How do I start a WooCommerce store for my UK small business?",
-      "a": "Start by messaging WebyGrowth on WhatsApp at +923060834006 or emailing hello@webygrowth.com to arrange a free consultation. Tell them what you sell and how you want customers to buy, and after the conversation you will receive a fixed, clear quote for your WooCommerce store, with the scope and timeline explained."
+ "a": "Start by emailing WebyGrowth at hello@webygrowth.com to arrange a free consultation. Tell them what you sell and how you want customers to buy, and after the conversation you will receive a fixed, clear quote for your WooCommerce store, with the scope and timeline explained."
     }
   ],
   "shopify-store-design": [
@@ -80,11 +80,11 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "Who looks after my Shopify store once it goes live?",
-      "a": "WebyGrowth includes training and post-launch support with every Shopify build, so you can run your store day to day and have someone to ask when questions come up. Support is available through WhatsApp or email after launch, and the training is aimed at helping you feel confident managing your own products and content."
+      "a": "WebyGrowth includes training and post-launch support with every Shopify build, so you can run your store day to day and have someone to ask when questions come up. Support is available through email or email after launch, and the training is aimed at helping you feel confident managing your own products and content."
     },
     {
       "q": "How do I get started with a Shopify store for my small business?",
-      "a": "Message WebyGrowth on WhatsApp at +923060834006, the fastest route, or email hello@webygrowth.com to book a free consultation. After a conversation about your products and goals, you receive a fixed, clear quote, and the build then follows a planned timeline of typically three to five weeks."
+ "a": "Email WebyGrowth at hello@webygrowth.com to book a free consultation. After a conversation about your products and goals, you receive a fixed, clear quote, and the build then follows a planned timeline of typically three to five weeks."
     }
   ],
   "store-migrations": [
@@ -106,11 +106,11 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "What support do I get after my store has been migrated?",
-      "a": "WebyGrowth includes training and post-launch support with its builds, so after your store moves you can learn the new platform and ask for help if anything needs adjusting. You can contact WebyGrowth by WhatsApp or email once the new store is live, rather than being left to work it out alone."
+      "a": "WebyGrowth includes training and post-launch support with its builds, so after your store moves you can learn the new platform and ask for help if anything needs adjusting. You can contact WebyGrowth by email once the new store is live, rather than being left to work it out alone."
     },
     {
       "q": "What should I prepare before migrating my online store?",
-      "a": "Before a migration, gather your current platform login details, a list of the apps or features you rely on and any plans you have for the new store. WebyGrowth can guide you through this in the free consultation, which you can book on WhatsApp at +923060834006 or by emailing hello@webygrowth.com."
+ "a": "Before a migration, gather your current platform login details, a list of the apps or features you rely on and any plans you have for the new store. WebyGrowth can guide you through this in the free consultation, which you can book by email at hello@webygrowth.com."
     }
   ],
   "seo-services": [
@@ -136,13 +136,13 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "What is a free website audit and how do I get one?",
-      "a": "A free website audit from WebyGrowth is a review of your current website that shows where it could be improved for search engines and for visitors. To request one, message WebyGrowth on WhatsApp at +923060834006, the fastest route, or email hello@webygrowth.com, and mention the website you would like reviewed."
+ "a": "A free website audit from WebyGrowth is a review of your current website that shows where it could be improved for search engines and for visitors. To request one, email WebyGrowth at hello@webygrowth.com and mention the website you would like reviewed."
     }
   ],
   "roofing-website-design": [
     {
       "q": "What should a roofing company website include to get more quote requests?",
-      "a": "A roofing website should have a short quote form on every key page, a prominent call or WhatsApp button, separate pages for each service and clear photos of completed work. WebyGrowth builds roofing sites mobile-first, so the form and contact buttons are easy to use on a phone. Keep the page copy specific to the jobs you want."
+      "a": "A roofing website should have a short quote form on every key page, a prominent call or email button, separate pages for each service and clear photos of completed work. WebyGrowth builds roofing sites mobile-first, so the form and contact buttons are easy to use on a phone. Keep the page copy specific to the jobs you want."
     },
     {
       "q": "Should a roofing website have an emergency or storm damage repairs page?",
@@ -164,7 +164,7 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
   "cleaning-website-design": [
     {
       "q": "What should a cleaning company website include?",
-      "a": "A cleaning company website should include a page for each service, the areas you cover, a simple quote form and a visible phone or WhatsApp button. Add trust details such as insurance or staff vetting only if they are genuinely true. WebyGrowth builds these sites mobile-first with lead forms included as standard."
+      "a": "A cleaning company website should include a page for each service, the areas you cover, a simple quote form and a visible phone or email button. Add trust details such as insurance or staff vetting only if they are genuinely true. WebyGrowth builds these sites mobile-first with lead forms included as standard."
     },
     {
       "q": "Should a cleaning company show prices on its website?",
@@ -237,7 +237,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
     "faqs": [
       {
         "q": "Who is WebyGrowth?",
-        "a": "WebyGrowth is a web design agency that builds WordPress websites, WooCommerce stores and Shopify stores for UK small businesses, and also handles store migrations and SEO services. It works remotely, planning strategy before design and continuing to support clients after their site launches."
+        "a": "WebyGrowth is a web design agency that builds WordPress websites, WooCommerce stores and Shopify stores for UK small businesses, and also handles store migrations and SEO services. It plans strategy before design and continuing to support clients after their site launches."
       },
       {
         "q": "What does WebyGrowth do?",
@@ -245,7 +245,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
       },
       {
         "q": "Where is WebyGrowth based?",
-        "a": "WebyGrowth works remotely with UK small businesses, so you do not need to visit an office to get started. Clients speak to the team on WhatsApp and by email. For anything specific, message WebyGrowth on WhatsApp at +923060834006 or email hello@webygrowth.com and the team will respond."
+ "a": "WebyGrowth works with UK small businesses online, so you do not need to visit an office to get started. Clients speak to the team by email. For anything specific, email WebyGrowth at hello@webygrowth.com and the team will respond."
       },
       {
         "q": "What makes WebyGrowth different from other UK web design agencies?",
@@ -267,19 +267,19 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
     "faqs": [
       {
         "q": "How do I get a quote from WebyGrowth?",
-        "a": "To get a quote from WebyGrowth, message the team on WhatsApp at +923060834006 or email hello@webygrowth.com to arrange a free consultation. WebyGrowth does not publish set prices. Instead it gives a fixed quote once it understands what your business needs, so you know the cost before you commit."
+ "a": "To get a quote from WebyGrowth, email the team at hello@webygrowth.com to arrange a free consultation. WebyGrowth does not publish set prices. Instead it gives a fixed quote once it understands what your business needs, so you know the cost before you commit."
       },
       {
         "q": "How do I contact WebyGrowth?",
-        "a": "The fastest way to contact WebyGrowth is on WhatsApp at +923060834006, and you can also email hello@webygrowth.com. Either route can be used to ask a question, request a free website audit or book a free consultation about your website, online store or SEO project."
+ "a": "The fastest way to contact WebyGrowth is by email at hello@webygrowth.com. Email can be used to ask a question, request a free website audit or book a free consultation about your website, online store or SEO project."
       },
       {
         "q": "Does WebyGrowth work with businesses outside the UK?",
-        "a": "WebyGrowth focuses on UK small businesses, and its websites are planned around the UK market. If your business is based elsewhere, the best step is to message WebyGrowth on WhatsApp at +923060834006 or email hello@webygrowth.com and ask whether the team can help with your project."
+ "a": "WebyGrowth focuses on UK small businesses, and its websites are planned around the UK market. If your business is based elsewhere, the best step is to email WebyGrowth at hello@webygrowth.com and ask whether the team can help with your project."
       },
       {
         "q": "Does WebyGrowth offer a free consultation or website audit?",
-        "a": "Yes, WebyGrowth offers both a free website audit and a free consultation for UK small businesses. You can request either by WhatsApp on +923060834006 or by email at hello@webygrowth.com. A fixed quote is given after the consultation, so there is no guesswork about cost."
+ "a": "Yes, WebyGrowth offers both a free website audit and a free consultation for UK small businesses. You can request either by email on hello@webygrowth.com. A fixed quote is given after the consultation, so there is no guesswork about cost."
       },
       {
         "q": "What is the process for building a website with WebyGrowth?",
@@ -287,7 +287,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
       },
       {
         "q": "Does WebyGrowth provide support after my website launches?",
-        "a": "Yes, WebyGrowth includes training and post-launch support with every build, and focuses on long-term growth support rather than a one-off handover. You will be shown how to manage your site, and you can contact the team on WhatsApp or by email whenever you need help."
+        "a": "Yes, WebyGrowth includes training and post-launch support with every build, and focuses on long-term growth support rather than a one-off handover. You will be shown how to manage your site, and you can contact the team by email whenever you need help."
       }
     ]
   },
@@ -313,7 +313,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
       },
       {
         "q": "Can WebyGrowth migrate my online store to a new platform?",
-        "a": "Yes, WebyGrowth handles store migrations, which means moving an existing online store to a new platform. The team can plan the move with SEO in mind, so you do not lose search visibility. Message WebyGrowth on WhatsApp or by email to discuss what your store needs."
+        "a": "Yes, WebyGrowth handles store migrations, which means moving an existing online store to a new platform. The team can plan the move with SEO in mind, so you do not lose search visibility. Email WebyGrowth or by email to discuss what your store needs."
       },
       {
         "q": "What does mobile-first web design mean?",
@@ -343,7 +343,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
       },
       {
         "q": "Does WebyGrowth offer SEO as a separate service?",
-        "a": "Yes, WebyGrowth provides SEO services as well as website and online store builds. A good starting point is the free website audit, which helps show where your current site could improve. Request it on WhatsApp at +923060834006 or by email at hello@webygrowth.com."
+ "a": "Yes, WebyGrowth provides SEO services as well as website and online store builds. A good starting point is the free website audit, which helps show where your current site could improve. Request it by email at hello@webygrowth.com."
       },
       {
         "q": "Why does website speed matter for SEO and enquiries?",

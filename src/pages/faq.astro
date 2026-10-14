@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { FAQ_GROUPS, PAGE_FAQS } from '../data/faqs';
 import { PAGES } from '../data/pages';
-import { SITE, HOME_FAQS, waLink } from '../data/site';
+import { SITE, HOME_FAQS, mailLink } from '../data/site';
 
 const groups = [
   ...FAQ_GROUPS,
@@ -48,8 +48,8 @@ const schema = [
       <h1 class="display-xl rise" style="--d:.05s">Straight answers,<br />no <span class="grad-text">sales waffle.</span></h1>
       <p class="lead rise" style="--d:.1s">{uniqueFaqs.length} questions UK business owners actually ask us about websites, online stores and SEO — answered properly.</p>
       <div class="fhero__ctas rise" style="--d:.14s">
-        <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I have a question about my website.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Ask on WhatsApp</a>
-        <a class="btn btn-ghost" href="/contact/">Send an enquiry</a>
+        <a class="btn btn-primary" href="/contact/">Ask us a question <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+        <a class="btn btn-ghost" href={mailLink('Question about my website')}>{SITE.email}</a>
       </div>
     </div>
   </section>
@@ -103,10 +103,10 @@ const schema = [
 
         <div class="fend">
           <h2>Still not sure?</h2>
-          <p class="muted">Send us your question on WhatsApp and you'll get a straight answer, usually the same working day — no obligation and no sales pressure.</p>
+          <p class="muted">Send us your question and you'll get a straight answer, usually within one working day — no obligation and no sales pressure.</p>
           <div class="fend__btns">
-            <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I have a question about my website.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Ask on WhatsApp</a>
-            <a class="btn btn-ghost" href="/contact/">Request a free audit</a>
+            <a class="btn btn-primary" href="/contact/">Request a free audit <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+            <a class="btn btn-ghost" href={mailLink('Question about my website')}>Email us</a>
           </div>
         </div>
       </div>

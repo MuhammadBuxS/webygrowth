@@ -127,4 +127,4 @@ Write down your goals, your product count, how often you will edit, and how impo
 
 ## Next steps
 
-If you are unsure which platform fits your business, we offer a free website audit and will give you an honest recommendation, even when the right answer is a simpler platform than the one you were considering. [Contact us](/contact/), email hello@webygrowth.com, or message us on WhatsApp on +923060834006. WordPress sites typically take 2-4 weeks to build, and Shopify builds 3-5 weeks.
+If you are unsure which platform fits your business, we offer a free website audit and will give you an honest recommendation, even when the right answer is a simpler platform than the one you were considering. [Contact us](/contact/) or email hello@webygrowth.com. WordPress sites typically take 2-4 weeks to build, and Shopify builds 3-5 weeks.

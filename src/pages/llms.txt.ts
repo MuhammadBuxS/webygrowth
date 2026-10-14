@@ -12,9 +12,9 @@ export const GET: APIRoute = async () => {
 > ${SITE.name} is a web design agency for UK small businesses. We build fast, SEO-ready WordPress, WooCommerce and Shopify websites, handle store migrations, and provide SEO services — all designed to generate more leads, sales and visibility.
 
 - Website: ${SITE.url}
-- Area served: United Kingdom (working remotely)
-- WhatsApp (fastest): +${SITE.whatsapp} — https://wa.me/${SITE.whatsapp}
-- Email: ${SITE.email}
+- Area served: United Kingdom
+- Email: ${SITE.email} (fastest way to get a reply)
+- Enquiry form: ${SITE.url}/contact/
 - Typical small business website timeline: 2–4 weeks
 
 ## Services
