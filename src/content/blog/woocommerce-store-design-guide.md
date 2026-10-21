@@ -1,6 +1,6 @@
 ---
 title: "WooCommerce Store Design: A Practical Guide for UK Retailers"
-description: "How to plan a WooCommerce store that sells: when it beats Shopify, hosting, product pages, checkout, UK VAT and shipping, plugins, SEO and what a build includes."
+description: "How to plan a WooCommerce store that sells: hosting, product pages, checkout, UK VAT and shipping, plugins and SEO — plus when Shopify fits better."
 keyword: "woocommerce store design"
 pubDate: 2026-10-17
 category: "Ecommerce"

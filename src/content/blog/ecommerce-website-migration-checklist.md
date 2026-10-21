@@ -67,7 +67,7 @@ This is the step that protects your traffic.
 2. **Keep URLs the same where you can.** If the new platform allows it, do not change them for the sake of tidiness. Needless changes create risk.
 3. **Map to the closest equivalent.** An old product goes to the same product, or to its category if it has been discontinued. Do not send everything to the home page.
 4. **Use 301 (permanent) redirects**, one hop only. Avoid chains where A goes to B goes to C.
-5. **Cover variants of the URL**, such as with and without trailing slashes, http and https, and www and non-www.
+5. **Cover variants of the URL**, such as with and without trailing slashes, http and https, and with or without the www prefix.
 6. **Test the sheet** by running the old URL list through a crawler against the staging redirects before launch.
 7. **Update internal links** so they point directly at new URLs, not through redirects.
 

@@ -1,5 +1,6 @@
 ---
 title: "Shopify Store Design: 12 Things High-Converting Stores Get Right"
+metaTitle: "Shopify Store Design: What Converts"
 description: "Good Shopify store design is clear, fast and trustworthy. Here are 12 things high-converting stores get right, from product pages to checkout and SEO."
 keyword: "shopify store design"
 pubDate: 2026-10-14

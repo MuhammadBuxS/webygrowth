@@ -1,5 +1,6 @@
 ---
 title: "Roofing Website Builder vs Custom Website: What Actually Wins Jobs"
+metaTitle: "Roofing Website Builder vs Custom Website"
 description: "Wix, Squarespace or a custom roofing website? An honest comparison of cost, SEO, speed and quote forms, plus when a builder is genuinely fine."
 keyword: "roofing website builder"
 pubDate: 2026-10-14

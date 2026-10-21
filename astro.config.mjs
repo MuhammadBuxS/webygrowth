@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { remarkUnpublishedLinks } from './src/lib/remark-unpublished-links.mjs';
 
 const SERVICE_PAGES = ['wordpress-website-design', 'woocommerce-store-design', 'shopify-store-design', 'store-migrations', 'seo-services'];
 const buildDate = new Date().toISOString();
@@ -27,5 +28,6 @@ export default defineConfig({
       },
     }),
   ],
+  markdown: { remarkPlugins: [remarkUnpublishedLinks] },
   build: { inlineStylesheets: 'auto' },
 });

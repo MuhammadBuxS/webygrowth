@@ -1,0 +1,22 @@
+---
+import { SITE, mailLink } from '../data/site';
+
+/**
+ * Email link that Cloudflare leaves alone.
+ *
+ * Cloudflare's Email Address Obfuscation rewrites mailto links into
+ * /cdn-cgi/l/email-protection URLs, which return 404 to crawlers and hide the address
+ * from AI assistants. The email_off comments tell Cloudflare to skip this markup.
+ */
+interface Props { subject?: string; class?: string; label?: string }
+const { subject = 'Website enquiry', class: cls = '', label = SITE.email } = Astro.props;
+const href = mailLink(subject);
+const hasSlot = Astro.slots.has('default');
+---
+<Fragment set:html="<!--email_off-->" />
+{hasSlot ? (
+  <a class={cls} href={href}><slot /></a>
+) : (
+  <a class={cls} href={href}>{label}</a>
+)}
+<Fragment set:html="<!--/email_off-->" />

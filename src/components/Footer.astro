@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import MailLink from './MailLink.astro';
 import Icon from './Icon.astro';
 import { NAV_SERVICES, NAV_INDUSTRIES, SITE, waLink, mailLink } from '../data/site';
 const year = new Date().getFullYear();
@@ -27,7 +28,7 @@ const year = new Date().getFullYear();
         <p class="muted">WebyGrowth helps small businesses build better websites, improve search visibility, and grow online through WordPress, WooCommerce, Shopify, and SEO services.</p>
         <p class="ftr__loc"><span class="live"></span> {SITE.area}</p>
         <a class="ftr__wa" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> {SITE.whatsappDisplay}</a>
-        <a class="ftr__mail" href={mailLink('Website enquiry')}><Icon name="mail" size={18} /> {SITE.email}</a>
+        <MailLink class="ftr__mail"><Icon name="mail" size={18} /> {SITE.email}</MailLink>
       </div>
       <div>
         <p class="ftr__h">Services</p>
@@ -46,7 +47,7 @@ const year = new Date().getFullYear();
           <li><a href="/services/">All services</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href={waLink()} target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href={`mailto:${SITE.email}`}>Email us</a></li>
+          <li><MailLink label="Email us" /></li>
         </ul>
       </div>
     </div>

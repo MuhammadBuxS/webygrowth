@@ -15,11 +15,20 @@ export async function getStaticPaths() {
 }
 
 const { category, posts, all } = Astro.props as { category: string; posts: Post[]; all: Post[] };
+
+const INTROS: Record<string, string> = {
+  'Web Design': 'Practical guidance on planning, pricing and building a small business website that earns its keep. These guides cover what a site actually costs in the UK, which platform suits which business, how speed affects your rankings, and the design decisions that turn visitors into enquiries.',
+  Ecommerce: 'Everything we have learned about building online stores that sell. These guides cover Shopify and WooCommerce store design, product and checkout pages that convert, UK payments, shipping and VAT, and how to move between platforms without losing your search rankings.',
+  SEO: 'Straightforward SEO advice for small businesses competing locally. These guides cover how local search actually works, getting your Google Business Profile right, structuring service and location pages around real demand, and what realistically moves rankings over time.',
+  'Industry Guides': 'Websites work differently depending on who you serve. These guides look at what roofers, cleaning companies, dental practices and restaurants each need from a website, the features that generate enquiries in those trades, and the mistakes that quietly cost work.',
+  Growth: 'Ideas for getting more from the website you already have. These guides cover the mistakes that lose enquiries, how to choose an agency without being oversold, and where to spend your next pound online for the best return.',
+};
+const intro = INTROS[category] ?? `Guides on ${category.toLowerCase()} for UK small businesses.`;
 const categories = [...new Set(all.map((p) => p.data.category))];
 ---
 <BaseLayout
   title={`${category} Guides for UK Small Businesses | WebyGrowth`}
-  description={`${category} articles from WebyGrowth — practical guidance on websites, ecommerce and SEO for UK small businesses.`}
+  description={`${category} guides from WebyGrowth: practical, jargon-free advice on websites, ecommerce and SEO for UK small businesses.`}
   crumbs={[{ name: 'Insights', path: '/blog/' }, { name: category, path: `/blog/category/${catSlug(category)}/` }]}
 >
   <section class="chero dark noise">
@@ -30,7 +39,8 @@ const categories = [...new Set(all.map((p) => p.data.category))];
         <a href="/">Home</a><span>/</span><a href="/blog/">Insights</a><span>/</span><span aria-current="page">{category}</span>
       </nav>
       <h1 class="display-lg rise" style="--d:.05s">{category}</h1>
-      <p class="lead rise" style="--d:.1s">{posts.length} guide{posts.length === 1 ? '' : 's'} on {category.toLowerCase()} for UK small businesses.</p>
+      <p class="lead rise" style="--d:.1s">{intro}</p>
+      <p class="catcount rise" style="--d:.14s">{posts.length} guide{posts.length === 1 ? '' : 's'} in this category</p>
     </div>
   </section>
 
@@ -56,6 +66,7 @@ const categories = [...new Set(all.map((p) => p.data.category))];
   .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: .85rem; color: #8a8fa3; }
   .crumbs a:hover { color: #fff; }
   .crumbs [aria-current] { color: #d7dbea; }
+  .catcount { color: var(--muted-dark); font-size: .9rem; }
   .posts { background: var(--paper); padding-top: clamp(50px, 6vw, 80px); }
   .cats { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 28px; }
   .cats__label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 6px; }

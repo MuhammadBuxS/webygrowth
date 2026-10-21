@@ -21,6 +21,9 @@ const service = PAGES.find((p) => p.slug === d.relatedService);
 const related = relatedPosts(posts, post);
 const toc = headings.filter((h) => h.depth === 2);
 const mins = readingTime(post.body ?? '');
+// Keep meta titles inside Google's ~60 character display limit.
+const baseTitle = d.metaTitle ?? d.title;
+const metaTitle = baseTitle.length > 47 ? baseTitle : `${baseTitle} | WebyGrowth`;
 
 const schema = [
   {
@@ -52,9 +55,13 @@ timeRequired: `PT${mins}M`,
 ];
 ---
 <BaseLayout
-  title={`${d.title} | WebyGrowth`}
+  title={metaTitle}
   description={d.description}
   crumbs={[{ name: 'Insights', path: '/blog/' }, { name: d.title, path: `/blog/${post.id}/` }]}
+  ogType="article"
+  publishedTime={d.pubDate.toISOString()}
+  modifiedTime={(d.updatedDate ?? d.pubDate).toISOString()}
+  section={d.category}
   schema={schema}
 >
   <article>
