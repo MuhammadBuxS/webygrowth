@@ -73,7 +73,9 @@ const schema = [
               {g.faqs.map((f) => (
                 <details>
                   <summary>{f.q}<span class="plus"><Icon name="plus" size={16} stroke={2.2} /></span></summary>
+                  <Fragment set:html="<!--email_off-->" />
                   <p>{f.a}</p>
+                  <Fragment set:html="<!--/email_off-->" />
                 </details>
               ))}
             </div>
@@ -93,7 +95,9 @@ const schema = [
                 {g.faqs.map((f) => (
                   <details>
                     <summary>{f.q}<span class="plus"><Icon name="plus" size={16} stroke={2.2} /></span></summary>
-                    <p>{f.a}</p>
+                    <Fragment set:html="<!--email_off-->" />
+                  <p>{f.a}</p>
+                  <Fragment set:html="<!--/email_off-->" />
                   </details>
                 ))}
               </div>

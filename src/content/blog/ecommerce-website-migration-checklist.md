@@ -1,6 +1,6 @@
 ---
 title: "Ecommerce Website Migration: The SEO-Safe Checklist"
-description: "A step-by-step ecommerce website migration checklist: audit, URL mapping, 301 redirects, staging QA, launch day and post-launch monitoring to protect your traffic."
+description: "A step-by-step ecommerce migration checklist: audit, URL mapping, 301 redirects, staging QA, launch day and post-launch monitoring."
 keyword: "ecommerce website migration"
 pubDate: 2026-10-20
 category: "Ecommerce"
