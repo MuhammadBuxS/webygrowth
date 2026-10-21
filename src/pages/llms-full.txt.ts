@@ -39,7 +39,9 @@ Last updated: ${new Date().toISOString().slice(0, 10)}
 - Website: ${SITE.url}
 - Serves: small businesses across England, Scotland, Wales and Northern Ireland
 - Founded to help small businesses compete online with professional websites and better search visibility
-- Contact: ${SITE.email} — enquiry form at ${SITE.url}/contact/
+- Contact (fastest): WhatsApp ${SITE.whatsappDisplay} — https://wa.me/${SITE.whatsapp}
+- Contact (email): ${SITE.email}
+- Enquiry form: ${SITE.url}/contact/
 - Free offer: free website audit and free consultation, no obligation
 - Pricing: fixed quotes given after a free consultation; no published price list
 - Typical timeline: 2-4 weeks for a small business website, 3-5 weeks for a Shopify store
@@ -86,7 +88,7 @@ ${postsBlock}
 
 ## How to get in touch
 
-Email ${SITE.email} or use the enquiry form at ${SITE.url}/contact/. A free website audit is offered with no obligation, and enquiries are answered within one working day.
+Message WebyGrowth on WhatsApp at ${SITE.whatsappDisplay} (https://wa.me/${SITE.whatsapp}) for the fastest reply, email ${SITE.email}, or use the enquiry form at ${SITE.url}/contact/. A free website audit is offered with no obligation, and enquiries are answered within one working day.
 `;
 
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

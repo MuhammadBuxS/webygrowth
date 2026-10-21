@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { getPosts } from '../../lib/posts';
-import { SITE, mailLink } from '../../data/site';
+import { SITE, waLink } from '../../data/site';
 
 const posts = await getPosts();
 const featured = posts.find((p) => p.data.featured) ?? posts[0];
@@ -43,7 +43,7 @@ const schema = [
       <h1 class="display-xl rise" style="--d:.05s">Advice that wins<br />you <span class="grad-text">more work.</span></h1>
       <p class="lead rise" style="--d:.1s">Straight-talking guides on websites, ecommerce and SEO for UK small businesses — no jargon, no filler, nothing you can't act on this week.</p>
       <div class="bhero__ctas rise" style="--d:.14s">
-        <a class="btn btn-primary" href="/contact/">Get a free audit <span class="arrow"><Icon name="arrow" size={16} /></span></a>
+        <a class="btn btn-wa" href={waLink("Hi WebyGrowth, I read your blog and I'd like a free website audit.")} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Get a free audit</a>
         <a class="btn btn-ghost" href="/services/">View services</a>
       </div>
     </div>

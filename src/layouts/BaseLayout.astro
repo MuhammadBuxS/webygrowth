@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import { SITE } from '../data/site';
 import { PAGES } from '../data/pages';
 
@@ -28,13 +29,23 @@ const org = {
   logo: { '@type': 'ImageObject', url: `${SITE.url}/icon-512.png`, width: 512, height: 512 },
   image: ogImage,
   email: SITE.email,
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: SITE.email,
-    contactType: 'sales',
-    availableLanguage: ['English'],
-    areaServed: 'GB',
-  },
+  telephone: `+${SITE.whatsapp}`,
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: `+${SITE.whatsapp}`,
+      contactType: 'sales',
+      availableLanguage: ['English'],
+      areaServed: 'GB',
+    },
+    {
+      '@type': 'ContactPoint',
+      email: SITE.email,
+      contactType: 'customer support',
+      availableLanguage: ['English'],
+      areaServed: 'GB',
+    },
+  ],
   description: SITE.description,
   alternateName: ['Weby Growth', 'WebyGrowth Web Design'],
   slogan: 'Websites that turn visitors into customers.',
@@ -148,6 +159,7 @@ const graph = [org, website, webpage, breadcrumb, ...schema].filter(Boolean);
       <slot />
     </main>
     <Footer />
+    <WhatsAppFloat />
 
     <script>
       const els = document.querySelectorAll<HTMLElement>('.reveal');

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import Faq from '../components/Faq.astro';
-import { SITE, HOME_FAQS, mailLink } from '../data/site';
+import { SITE, HOME_FAQS, waLink, mailLink } from '../data/site';
 import { SERVICES, INDUSTRIES } from '../data/pages';
 
 const options = [...SERVICES, ...INDUSTRIES].map((p) => p.label).concat(['Free Website Audit', 'Something else']);
@@ -23,16 +23,16 @@ const options = [...SERVICES, ...INDUSTRIES].map((p) => p.label).concat(['Free W
         <h1 class="display-lg rise" style="--d:.05s">Let's build your <span class="grad-text">growth engine.</span></h1>
         <p class="lead rise" style="--d:.1s">Tell us about your business and goals. We'll come back within one working day with honest advice and next steps — no hard sell.</p>
 
-        <a class="cwa rise" style="--d:.12s" href={mailLink('Website enquiry')}>
-          <span class="cwa__ico"><Icon name="mail" size={28} /></span>
-          <span class="cwa__txt"><small>Prefer email?</small><strong>Email us directly</strong><em>{SITE.email}</em></span>
+        <a class="cwa rise" style="--d:.12s" href={waLink("Hi WebyGrowth, I'd like to discuss a website project.")} target="_blank" rel="noopener">
+          <span class="cwa__ico"><Icon name="whatsapp" size={28} /></span>
+          <span class="cwa__txt"><small>Fastest response</small><strong>Chat on WhatsApp</strong><em>{SITE.whatsappDisplay}</em></span>
           <span class="cwa__go"><Icon name="arrow-up-right" size={20} /></span>
         </a>
 
         <ul class="cinfo rise" style="--d:.14s">
           <li>
             <span class="cinfo__ico"><Icon name="mail" size={20} /></span>
-            <div><small>Email us</small><a href={`mailto:${SITE.email}`}>{SITE.email}</a></div>
+            <div><small>Email us</small><a href={mailLink('Website enquiry')}>{SITE.email}</a></div>
           </li>
           <li>
             <span class="cinfo__ico"><Icon name="pin" size={20} /></span>
@@ -129,11 +129,11 @@ const options = [...SERVICES, ...INDUSTRIES].map((p) => p.label).concat(['Free W
   .chero { position: relative; overflow: hidden; padding-top: clamp(130px, 15vw, 180px); padding-bottom: clamp(80px, 10vw, 130px); }
   .chero__grid { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 90px); align-items: start; }
   .chero__copy { display: grid; gap: 26px; }
-  .cwa { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 20px; background: linear-gradient(135deg, rgba(37,99,235,.28), rgba(139,92,246,.1)); border: 1px solid rgba(124,196,255,.35); transition: transform .4s var(--ease), border-color .3s, box-shadow .4s var(--ease); }
-  .cwa:hover { transform: translateY(-3px); border-color: var(--sky); box-shadow: 0 24px 50px -24px rgba(37,99,235,.6); }
-  .cwa__ico { width: 56px; height: 56px; flex-shrink: 0; border-radius: 16px; display: grid; place-items: center; background: var(--blue); color: #fff; }
+  .cwa { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 20px; background: linear-gradient(135deg, rgba(37,211,102,.2), rgba(37,211,102,.06)); border: 1px solid rgba(37,211,102,.4); transition: transform .4s var(--ease), border-color .3s, box-shadow .4s var(--ease); }
+  .cwa:hover { transform: translateY(-3px); border-color: #25d366; box-shadow: 0 24px 50px -24px rgba(37,211,102,.6); }
+  .cwa__ico { width: 56px; height: 56px; flex-shrink: 0; border-radius: 16px; display: grid; place-items: center; background: #25d366; color: #fff; }
   .cwa__txt { display: grid; flex: 1; }
-  .cwa__txt small { color: var(--sky); font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .cwa__txt small { color: #7ee2a8; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
   .cwa__txt strong { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; letter-spacing: -.02em; margin-block: 2px; }
   .cwa__txt em { font-style: normal; color: #c3c7d6; font-size: .95rem; }
   .cwa__go { width: 42px; height: 42px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.08); }

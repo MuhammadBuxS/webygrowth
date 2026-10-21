@@ -137,4 +137,4 @@ Accessible sites are better for everyone, including diners with visual or motor 
 
 ## Next steps
 
-If you would like to know how your restaurant website measures up, we offer a free website audit covering your menu, booking flow, mobile speed and local search basics. [Get in touch through our contact page](/contact/) or email us at hello@webygrowth.com, and we will tell you plainly what we would fix first.
+If you would like to know how your restaurant website measures up, we offer a free website audit covering your menu, booking flow, mobile speed and local search basics. [Get in touch through our contact page](/contact/), message us on WhatsApp at +44 7460 610320, or email hello@webygrowth.com, and we will tell you plainly what we would fix first.

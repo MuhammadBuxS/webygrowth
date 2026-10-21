@@ -13,7 +13,8 @@ export const GET: APIRoute = async () => {
 
 - Website: ${SITE.url}
 - Area served: United Kingdom
-- Email: ${SITE.email} (fastest way to get a reply)
+- WhatsApp (fastest): ${SITE.whatsappDisplay} — https://wa.me/${SITE.whatsapp}
+- Email: ${SITE.email}
 - Enquiry form: ${SITE.url}/contact/
 - Typical small business website timeline: 2–4 weeks
 

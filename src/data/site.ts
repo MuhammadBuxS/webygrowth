@@ -1,7 +1,9 @@
 export const SITE = {
   name: 'WebyGrowth',
   url: 'https://webygrowth.com',
- email: 'hello@webygrowth.com',
+  email: 'hello@webygrowth.com',
+  whatsapp: '447460610320',
+  whatsappDisplay: '+44 7460 610320',
   tagline: 'Web design for small businesses that want more leads, sales & visibility.',
   description:
     'WebyGrowth is a UK web design agency building fast, SEO-ready WordPress, WooCommerce and Shopify websites that turn visitors into enquiries.',
@@ -10,6 +12,10 @@ export const SITE = {
   // Override with PUBLIC_FORM_ENDPOINT, e.g. the random alias FormSubmit gives you after activation.
   formEndpoint: (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || 'https://formsubmit.co/ajax/mbux4001@gmail.com',
 };
+
+/** WhatsApp click-to-chat link with an optional pre-filled message. */
+export const waLink = (message = "Hi WebyGrowth, I'd like to discuss a website for my business.") =>
+  `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 
 /** Pre-filled mailto link for enquiry buttons. */
 export const mailLink = (subject = 'Website enquiry') =>

@@ -32,7 +32,7 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "How do I get started with a new WordPress website for my UK business?",
- "a": "The fastest way to start is to email WebyGrowth at hello@webygrowth.com to book a free consultation. You can also ask for a free website audit if you already have a site, and after the conversation you will receive a fixed, clear quote with the scope set out."
+ "a": "The fastest way to start is to message WebyGrowth on WhatsApp at +44 7460 610320 or email hello@webygrowth.com to book a free consultation. You can also ask for a free website audit if you already have a site, and after the conversation you will receive a fixed, clear quote with the scope set out."
     }
   ],
   "woocommerce-store-design": [
@@ -58,7 +58,7 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "How do I start a WooCommerce store for my UK small business?",
- "a": "Start by emailing WebyGrowth at hello@webygrowth.com to arrange a free consultation. Tell them what you sell and how you want customers to buy, and after the conversation you will receive a fixed, clear quote for your WooCommerce store, with the scope and timeline explained."
+ "a": "Start by messaging WebyGrowth on WhatsApp at +44 7460 610320 or emailing hello@webygrowth.com to arrange a free consultation. Tell them what you sell and how you want customers to buy, and after the conversation you will receive a fixed, clear quote for your WooCommerce store, with the scope and timeline explained."
     }
   ],
   "shopify-store-design": [
@@ -84,7 +84,7 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "How do I get started with a Shopify store for my small business?",
- "a": "Email WebyGrowth at hello@webygrowth.com to book a free consultation. After a conversation about your products and goals, you receive a fixed, clear quote, and the build then follows a planned timeline of typically three to five weeks."
+ "a": "Message WebyGrowth on WhatsApp at +44 7460 610320 or email hello@webygrowth.com to book a free consultation. After a conversation about your products and goals, you receive a fixed, clear quote, and the build then follows a planned timeline of typically three to five weeks."
     }
   ],
   "store-migrations": [
@@ -136,7 +136,7 @@ export const PAGE_FAQS: Record<string, Faq[]> = {
     },
     {
       "q": "What is a free website audit and how do I get one?",
- "a": "A free website audit from WebyGrowth is a review of your current website that shows where it could be improved for search engines and for visitors. To request one, email WebyGrowth at hello@webygrowth.com and mention the website you would like reviewed."
+ "a": "A free website audit from WebyGrowth is a review of your current website that shows where it could be improved for search engines and for visitors. To request one, message WebyGrowth on WhatsApp at +44 7460 610320 or email hello@webygrowth.com and mention the website you would like reviewed."
     }
   ],
   "roofing-website-design": [
@@ -245,7 +245,7 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
       },
       {
         "q": "Where is WebyGrowth based?",
- "a": "WebyGrowth works with UK small businesses online, so you do not need to visit an office to get started. Clients speak to the team by email. For anything specific, email WebyGrowth at hello@webygrowth.com and the team will respond."
+ "a": "WebyGrowth works with UK small businesses online, so you do not need to visit an office to get started. Clients speak to the team on WhatsApp and by email. For anything specific, message WebyGrowth on WhatsApp at +44 7460 610320 or email hello@webygrowth.com and the team will respond."
       },
       {
         "q": "What makes WebyGrowth different from other UK web design agencies?",
@@ -267,15 +267,15 @@ export const FAQ_GROUPS: { title: string; intro: string; faqs: Faq[] }[] = [
     "faqs": [
       {
         "q": "How do I get a quote from WebyGrowth?",
- "a": "To get a quote from WebyGrowth, email the team at hello@webygrowth.com to arrange a free consultation. WebyGrowth does not publish set prices. Instead it gives a fixed quote once it understands what your business needs, so you know the cost before you commit."
+ "a": "To get a quote from WebyGrowth, message the team on WhatsApp at +44 7460 610320 or email hello@webygrowth.com to arrange a free consultation. WebyGrowth does not publish set prices. Instead it gives a fixed quote once it understands what your business needs, so you know the cost before you commit."
       },
       {
         "q": "How do I contact WebyGrowth?",
- "a": "The fastest way to contact WebyGrowth is by email at hello@webygrowth.com. Email can be used to ask a question, request a free website audit or book a free consultation about your website, online store or SEO project."
+ "a": "The fastest way to contact WebyGrowth is on WhatsApp at +44 7460 610320, and email hello@webygrowth.com also works. Email can be used to ask a question, request a free website audit or book a free consultation about your website, online store or SEO project."
       },
       {
         "q": "Does WebyGrowth work with businesses outside the UK?",
- "a": "WebyGrowth focuses on UK small businesses, and its websites are planned around the UK market. If your business is based elsewhere, the best step is to email WebyGrowth at hello@webygrowth.com and ask whether the team can help with your project."
+ "a": "WebyGrowth focuses on UK small businesses, and its websites are planned around the UK market. If your business is based elsewhere, the best step is to message WebyGrowth on WhatsApp at +44 7460 610320 or email hello@webygrowth.com and ask whether the team can help with your project."
       },
       {
         "q": "Does WebyGrowth offer a free consultation or website audit?",

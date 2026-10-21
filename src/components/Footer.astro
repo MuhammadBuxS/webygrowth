@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { NAV_SERVICES, NAV_INDUSTRIES, SITE, mailLink } from '../data/site';
+import { NAV_SERVICES, NAV_INDUSTRIES, SITE, waLink, mailLink } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="ftr dark noise">
@@ -15,8 +15,8 @@ const year = new Date().getFullYear();
       <div class="ftr__cta-side">
         <p class="lead">Get a free, no-obligation audit of your current website — with clear, practical fixes to win more enquiries.</p>
         <div class="ftr__btns">
-          <a class="btn btn-light" href="/contact/">Start your project <span class="arrow"><Icon name="arrow" size={16} /></span></a>
-          <a class="btn btn-ghost" href={mailLink('Website enquiry')}>{SITE.email}</a>
+          <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Chat on WhatsApp</a>
+          <a class="btn btn-ghost" href="/contact/">Start your project</a>
         </div>
       </div>
     </div>
@@ -26,7 +26,8 @@ const year = new Date().getFullYear();
         <Logo />
         <p class="muted">WebyGrowth helps small businesses build better websites, improve search visibility, and grow online through WordPress, WooCommerce, Shopify, and SEO services.</p>
         <p class="ftr__loc"><span class="live"></span> {SITE.area}</p>
-        <a class="ftr__wa" href={mailLink('Website enquiry')}><Icon name="mail" size={18} /> {SITE.email}</a>
+        <a class="ftr__wa" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> {SITE.whatsappDisplay}</a>
+        <a class="ftr__mail" href={mailLink('Website enquiry')}><Icon name="mail" size={18} /> {SITE.email}</a>
       </div>
       <div>
         <p class="ftr__h">Services</p>
@@ -44,6 +45,7 @@ const year = new Date().getFullYear();
           <li><a href="/faq/">FAQs</a></li>
           <li><a href="/services/">All services</a></li>
           <li><a href="/contact/">Contact</a></li>
+          <li><a href={waLink()} target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href={`mailto:${SITE.email}`}>Email us</a></li>
         </ul>
       </div>
@@ -69,8 +71,10 @@ const year = new Date().getFullYear();
   .ftr__brand p { font-size: .95rem; }
   .ftr__loc { display: flex; align-items: center; gap: 10px; color: #d7dbea; }
   .live { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 12px var(--lime); }
-  .ftr__wa { display: inline-flex; align-items: center; gap: 10px; color: var(--sky); font-weight: 600; }
-  .ftr__wa:hover { color: #fff; }
+  .ftr__wa { display: inline-flex; align-items: center; gap: 10px; color: #25d366; font-weight: 600; }
+  .ftr__wa:hover { color: #5ff09a; }
+  .ftr__mail { display: inline-flex; align-items: center; gap: 10px; color: var(--sky); font-weight: 600; }
+  .ftr__mail:hover { color: #fff; }
   .ftr__h { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #6f7489; font-weight: 600; margin-bottom: 18px; }
   .ftr ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
   .ftr ul a { color: #c3c7d6; font-size: .95rem; transition: color .2s; }
